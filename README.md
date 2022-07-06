@@ -1,5 +1,10 @@
 # bemmequero
 
+Projeto feito para um salão de beleza.
+
+é meu segundo projeto na arean na qual peguei um front-end pré pronto e o modifiquei e criei o back-end.
+
+
 Pasta /class:
 contem todas as classes  utilizadas no projeto.
 
