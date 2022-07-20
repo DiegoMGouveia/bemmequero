@@ -1,13 +1,41 @@
 <?php
     class User {
-        public $name = null;
-        public $user = null;
-        public $password = null;
-        public $email = null;
-        public $cellPhone = null;
-        public $type = null;
+        public $user_id;
+        public $name;
+        public $document;
+        public $cellPhone;
+        public $mail;
+        public $adress;
+        public $wallet;
+        public $password;
+        public $registered;
+        public $conf_mail;
+        public $conf_cel;
+        public $type;
 
         
+
+        /**
+         * Get the value of user_id
+         */ 
+        public function getUser_id()
+        {
+                return $this->user_id;
+        }
+
+        /**
+         * Set the value of user_id
+         *
+         * @return  self
+         */ 
+        public function setUser_id($user_id)
+        {
+                $this->user_id = $user_id;
+
+                return $this;
+        }
+        
+
         /**
          * Get the value of name
          */ 
@@ -27,24 +55,105 @@
 
                 return $this;
         }
-
         
+
         /**
-         * Get the value of user
+         * Get the value of document
          */ 
-        public function getUser()
+        public function getDocument()
         {
-                return $this->user;
+                return $this->document;
         }
 
         /**
-         * Set the value of user
+         * Set the value of document
          *
          * @return  self
          */ 
-        public function setUser($user)
+        public function setDocument($document)
         {
-                $this->user = $user;
+                $this->document = $document;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of cellPhone
+         */ 
+        public function getCellPhone()
+        {
+                return $this->cellPhone;
+        }
+
+        /**
+         * Set the value of cellPhone
+         *
+         * @return  self
+         */ 
+        public function setCellPhone($cellPhone)
+        {
+                $this->cellPhone = $cellPhone;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of mail
+         */ 
+        public function getMail()
+        {
+                return $this->mail;
+        }
+
+        /**
+         * Set the value of mail
+         *
+         * @return  self
+         */ 
+        public function setMail($mail)
+        {
+                $this->mail = $mail;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of adress
+         */ 
+        public function getAdress()
+        {
+                return $this->adress;
+        }
+
+        /**
+         * Set the value of adress
+         *
+         * @return  self
+         */ 
+        public function setAdress($adress)
+        {
+                $this->adress = $adress;
+
+                return $this;
+        }
+        
+
+        /**
+         * Get the value of wallet
+         */ 
+        public function getWallet()
+        {
+                return $this->wallet;
+        }
+
+        /**
+         * Set the value of wallet
+         *
+         * @return  self
+         */ 
+        public function setWallet($wallet)
+        {
+                $this->wallet = $wallet;
 
                 return $this;
         }
@@ -72,47 +181,68 @@
         
 
         /**
-         * Get the value of email
+         * Get the value of registered
          */ 
-        public function getEmail()
+        public function getRegistered()
         {
-                return $this->email;
+                return $this->registered;
         }
 
         /**
-         * Set the value of email
+         * Set the value of registered
          *
          * @return  self
          */ 
-        public function setEmail($email)
+        public function setRegistered($registered)
         {
-                $this->email = $email;
+                $this->registered = $registered;
+
+                return $this;
+        }
+        
+
+        /**
+         * Get the value of conf_mail
+         */ 
+        public function getConf_mail()
+        {
+                return $this->conf_mail;
+        }
+
+        /**
+         * Set the value of conf_mail
+         *
+         * @return  self
+         */ 
+        public function setConf_mail($conf_mail)
+        {
+                $this->conf_mail = $conf_mail;
 
                 return $this;
         }
 
-        
+
         /**
-         * Get the value of cellPhone
+         * Get the value of conf_cel
          */ 
-        public function getCellPhone()
+        public function getConf_cel()
         {
-                return $this->cellPhone;
+                return $this->conf_cel;
         }
 
         /**
-         * Set the value of cellPhone
+         * Set the value of conf_cel
          *
          * @return  self
          */ 
-        public function setCellPhone($cellPhone)
+        public function setConf_cel($conf_cel)
         {
-                $this->cellPhone = $cellPhone;
+                $this->conf_cel = $conf_cel;
 
                 return $this;
         }
-
         
+
         /**
          * Get the value of type
          */ 
@@ -132,5 +262,4 @@
 
                 return $this;
         }
-        
     }

@@ -1,3 +1,39 @@
+<?php
+	if (isset($_SESSION['userlogin'])) {
+		header("location:index.php");
+	}
+	
+	require_once("bmqdb/connection.php");
+    require("functions/functions.php");
+
+
+
+	session_start();
+
+	// verifica se o usuário ja efetuou o login, caso esteja logado, redirecionará para a página inicial.
+	
+	
+
+	// verifica se o usuário e senha estão setados
+
+	if(isset($_POST["usermail"]) && isset($_POST["password"])){
+
+		// se verdadeiro, irá verificar se os dados digitados estão no banco de dados.
+        $login = login($_POST["usermail"],$_POST["password"],$conn);
+        if ( $login == false ){
+            //login errado irá retornar a variavel $mensagem com a mensagem de erro.
+            $mensagem = "Usuário/senha incorreto. Tente novamente.";
+        } else {
+			// caso retorne o objeto, criará uma sessão com o objeto $login retornado.
+            $_SESSION['userlogin'] = (object)$login;
+			header("location:index.php");
+        }
+        
+
+    }
+?>
+
+
 <!doctype html>
 <html lang="Pt-Br">
   <head>
@@ -18,7 +54,7 @@
 
 
     <?php require("login/menu-top.php"); ?>
-	<section class="ftco-section">
+	<section id="login" class="login ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -47,14 +83,14 @@
 									</p>
 								</div>
 			      	</div>
-							<form action="#" class="signin-form">
+							<form action="login.php" class="signin-form" method="post">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Usuário</label>
-			      			<input type="text" class="form-control" placeholder="Usuário" required>
+			      			<input type="text" name="usermail" class="form-control" placeholder="Usuário" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Senha</label>
-		              <input type="password" class="form-control" placeholder="Senha" required>
+		              <input type="password" name="password" class="form-control" placeholder="Senha" required>
 		            </div>
 		            <div class="form-group">
 		            	<button type="submit" class="form-control btn btn-primary submit px-3">Entrar</button>
@@ -70,6 +106,11 @@
 										<a href="#">Esqueci a senha</a>
 									</div>
 		            </div>
+					<?php
+					if (isset($mensagem)){
+						echo $mensagem;
+					}
+					?>
 		          </form>
 		        </div>
 		      </div>
@@ -83,6 +124,11 @@
   <script src="login/js/bootstrap.min.js"></script>
   <script src="login/js/main.js"></script>
 
+      <!-- rodape/footer -->
+	  <?php require("requires/footer.php"); ?>
+
+	<!-- links de estilo js e script Tawk.to -->
+	<?php require("css/links-footer.php"); ?>
 	</body>
 </html>
 
