@@ -1,6 +1,9 @@
 <?php 
     require("bmqdb/connection.php");
     require("functions/functions.php");
+
+    // requiremento de todas as classes necessárias para o projeto.
+    require_once __DIR__ . "class/classes.php";
     session_start();
     
 ?>
@@ -12,10 +15,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem Me Quero Studio</title>
+    
     <!-- links de estilo -->
     <?php require("css/links-head.php"); ?>
 </head>
 <body>
+    
+    <!-- menu topo -->
     <?php require("requires/menu-top.php"); ?>
 
     <!-- header -->

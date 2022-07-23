@@ -1,17 +1,17 @@
 <?php
-	if (isset($_SESSION['userlogin'])) {
-		header("location:index.php");
-	}
+	
 	
 	require_once("bmqdb/connection.php");
     require("functions/functions.php");
 
+    // requiremento de todas as classes necessárias para o projeto.
+    require_once("class/classes.php");
 
 
 	session_start();
 
 	// verifica se o usuário ja efetuou o login, caso esteja logado, redirecionará para a página inicial.
-	
+	checkUserLogin();
 	
 
 	// verifica se o usuário e senha estão setados
@@ -19,7 +19,7 @@
 	if(isset($_POST["usermail"]) && isset($_POST["password"])){
 
 		// se verdadeiro, irá verificar se os dados digitados estão no banco de dados.
-        $login = login($_POST["usermail"],$_POST["password"],$conn);
+        $login = login($_POST["usermail"],MD5($_POST["password"]),$conn);
         if ( $login == false ){
             //login errado irá retornar a variavel $mensagem com a mensagem de erro.
             $mensagem = "Usuário/senha incorreto. Tente novamente.";
@@ -27,8 +27,7 @@
 			// caso retorne o objeto, criará uma sessão com o objeto $login retornado.
             $_SESSION['userlogin'] = (object)$login;
 			header("location:index.php");
-        }
-        
+        } 
 
     }
 ?>
@@ -53,7 +52,7 @@
 	<body>
 
 
-    <?php require("login/menu-top.php"); ?>
+    <?php require("requires/menu-top.php"); ?>
 	<section id="login" class="login ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">

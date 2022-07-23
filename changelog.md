@@ -2,8 +2,29 @@
 
 Todas mudanças realizadas neste projeto serão documentadas neste arquivo a partir de hoje 2022-07-06.
 
+## [0.2.1] - 2022-07-23 00:49
 
-## [0.2.0] - 
+### Added
+
+- Criado codigo back-end para registro de novo usuário, sem exigencias de caracteres, apenas verifica se a senha esta escrita duas vezes repetidas, futuramente colocar mais exigencias de segurança.
+- Criada nova função register($userObj,$conection).
+- Uma Mensagem de sucesso é mostrada ao final do registro caso esta não apresente falhas.
+- Uma mensagem é mostrada caso o email, celular, documento já estejam no banco de dados(duplicado).
+- Novo arquivo "class/classes.php" que irá incluir todas as classes necessárias no projeto na página.
+- nova classe "class/CheckMailCellDup.php" usada para a checagem de dados duplicados no cadastro de usuários.
+
+
+
+### Removed
+
+- login/menu-top.php
+
+### Changed
+
+- Modificado o changelog adicionando a data do commit da versão [0.2.0].
+
+
+## [0.2.0] - 2022-07-20
 
 ### Added
 

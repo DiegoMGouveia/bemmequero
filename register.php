@@ -1,27 +1,43 @@
 <?php 
+	// conexão
     require("bmqdb/connection.php");
+	// funções
+    require("functions/functions.php");
+	// classes
+    require_once("class/classes.php");
+	
+	// checa os dados enviados para o registro de um novo usuário.
+	require("requires/checkregister.php");
 
     session_start();
+
+
+
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
-  	<title>Cadastrar - Studio Bem Me Quero</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+	<title>Cadastrar - Studio Bem Me Quero</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <?php require("css/links-head.php"); ?>
-	
+	<!-- links de estilo -->
+	<?php require("css/links-head.php"); ?>
 
 	</head>
 	<body>
-	
+    
+	<!-- menu topo -->
+	<?php require("requires/menu-top.php"); ?>
 
-    <?php require("login/menu-top.php"); ?>
+	<!-- Formulário de registro do novo usuário -->
+
 	<section class="vh-100" style="background-color: #eee;">
 		<div class="container h-100">
 			<div class="row d-flex justify-content-center align-items-center h-100">
@@ -31,45 +47,17 @@
 					<div class="row justify-content-center">
 					<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-						<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registro</p>
+						<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-2 mt-1">Registro</p>
 
 						<!-- inicio do formulário -->
 						<form class="mx-1 mx-md-4" action="register.php" method="post">
-						<?php
-						//verificar botão enviar
-						if (isset($_POST["submitform"])) {
-							// verifica se o campo NOME esta preenchido
-							if(isset($_POST["inputname"]) && !empty($_POST["inputname"])) {
-								// verifica se o campo Email esta preenchido
-								if(isset($_POST["inputmail"]) && !empty($_POST["inputmail"])) {
-									// verifica se o campo Senha esta preenchido
-									if(isset($_POST["inputpassword"]) && !empty($_POST["inputpassword"])) {
-										// verifica se o campo Repetir Senha esta preenchido
-										if(isset($_POST["inputpasswordrepeat"]) && !empty($_POST["inputpasswordrepeat"])) {
-
-											$form = [
-												"name" => filter_var($_POST["inputname"]),
-												"mail" => filter_var($_POST["inputmail"]),
-												"password" => filter_var($_POST["inputpassword"]),
-												"rpassword" => filter_var($_POST["inputpasswordrepeat"]),
-											];
-											var_dump($form);
-										}
-									}
-								}
-
-							}
-							
-							
-						}
-
-						?>
+						
 						<!-- digitar o nome completo -->
 						<div class="d-flex flex-row align-items-center mb-4">
 							<i class="fas fa-user fa-lg me-3 fa-fw"></i>
 							<div class="form-outline flex-fill mb-0">
-							<input type="text" name="inputname" placeholder="Janaína Machado" id="inputName" class="form-control" required />
 							<label class="form-label" for="inputname">Nome Completo</label>
+							<input type="text" name="inputname" placeholder="Janaína Machado" id="inputName" class="form-control" required />
 							</div>
 						</div>
 						
@@ -78,8 +66,8 @@
 						<div class="d-flex flex-row align-items-center mb-4">
 							<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 							<div class="form-outline flex-fill mb-0">
-							<input type="email" name="inputmail" id="inputmail" placeholder="email@live.com" class="form-control" required />
 							<label class="form-label" for="inputmail">Seu Email</label>
+							<input type="email" name="inputmail" id="inputmail" placeholder="email@live.com" class="form-control" required />
 							</div>
 						</div>
 
@@ -87,8 +75,8 @@
 						<div class="d-flex flex-row align-items-center mb-4">
 							<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 							<div class="form-outline flex-fill mb-0">
-							<input type="cellphone" name="inputmail" id="inputcellphone" class="form-control" placeholder="(53)999999999" required />
 							<label class="form-label" for="inputmail">Seu Celular</label>
+							<input type="cellphone" name="inputcell" id="inputcellphone" class="form-control" placeholder="(53)999999999" required />
 							</div>
 						</div>
 
@@ -96,8 +84,8 @@
 						<div class="d-flex flex-row align-items-center mb-4">
 							<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 							<div class="form-outline flex-fill mb-0">
-							<input type="password" name="inputpassword" id="inputpassword" placeholder="Digite aqui sua senha" class="form-control" required />
 							<label class="form-label" for="inputpassword">Senha</label>
+							<input type="password" name="inputpassword" id="inputpassword" placeholder="Digite aqui sua senha" class="form-control" required />
 							</div>
 						</div>
 						
@@ -105,8 +93,8 @@
 						<div class="d-flex flex-row align-items-center mb-4">
 							<i class="fas fa-key fa-lg me-3 fa-fw"></i>
 							<div class="form-outline flex-fill mb-0">
-							<input type="password" name="inputpasswordrepeat" placeholder="Repita sua senha" id="inputpasswordrepeat" class="form-control" required />
 							<label class="form-label" for="inputpasswordrepeat">Repita sua senha</label>
+							<input type="password" name="inputpasswordrepeat" placeholder="Repita sua senha" id="inputpasswordrepeat" class="form-control" required />
 							</div>
 						</div>
 						
@@ -123,14 +111,25 @@
 							<button type="submit" name="submitform" class="btn btn-primary btn-lg">Registrar</button>
 						</div>
 
+						<?php
+							if (isset($pwdNotSame)){
+								echo "<p> $pwdNotSame </p>";
+							}
+
+							if ($Registered->getCheckCell() == true){
+								echo "<p> Celular já cadastrado em outra conta. </p>";
+							}
+							
+							if ($Registered->getCheckMail() == true){
+								echo "<p> Email já cadastrado em outra conta. </p>";
+							}
+							
+							if ($Registered->getCheckSafe()){
+								echo "<p> Registro feito com sucesso! </p>";
+							}
+						?>
 						</form>
 						
-
-					</div>
-					<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-						<img src="img/logo3.jpg"
-						class="img-fluid" alt="logo Studio Bem Me Quero">
 
 					</div>
 					</div>
@@ -141,6 +140,11 @@
 		</div>
 		
 	</section>
+
+	<script src="login/js/jquery.min.js"></script>
+  <script src="login/js/popper.js"></script>
+  <script src="login/js/bootstrap.min.js"></script>
+  <script src="login/js/main.js"></script>
 
       <!-- rodape/footer -->
 	  <?php require("requires/footer.php"); ?>

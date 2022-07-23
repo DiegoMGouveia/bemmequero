@@ -1,17 +1,19 @@
 <?php
     class User {
-        public $user_id;
-        public $name;
-        public $document;
-        public $cellPhone;
-        public $mail;
-        public $adress;
-        public $wallet;
-        public $password;
-        public $registered;
-        public $conf_mail;
-        public $conf_cel;
-        public $type;
+        private $user_id;
+        private $name;
+        private $document;
+        private $cellPhone;
+        private $mail;
+        private $adress;
+        private $wallet;
+        private $password;
+        private $registered;
+        private $conf_mail;
+        private $conf_cel;
+        public $msg_success;
+        public $msg_error;
+        private $type;
 
         
 
@@ -262,4 +264,47 @@
 
                 return $this;
         }
+
+
+        /**
+         * Get the value of msg_error
+         */ 
+        public function getMsg_error()
+        {
+                return $this->msg_error;
+        }
+
+        /**
+         * Set the value of msg_error
+         *
+         * @return  self
+         */ 
+        public function setMsg_error($msg_error)
+        {
+                $this->msg_error = $msg_error;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of msg_success
+         */ 
+        public function getMsg_success()
+        {
+                return $this->msg_success;
+        }
+
+        /**
+         * Set the value of msg_success
+         *
+         * @return  self
+         */ 
+        public function setMsg_success($msg_success)
+        {
+                $this->msg_success = $msg_success;
+
+                return $this;
+        }
+
+        
     }

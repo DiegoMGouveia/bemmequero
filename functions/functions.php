@@ -10,12 +10,13 @@
 
 
         try {
+
             $stmt = $conection->prepare('SELECT * FROM users WHERE document = :documen AND password = :pass OR cellphone = :cell AND password = :pass OR mail = :email AND password = :pass ');
             $stmt->bindValue(':documen', $usermail);
             $stmt->bindValue(':pass', $pwd);
             $stmt->bindValue(':email', $usermail);
             $stmt->bindValue(':cell', $usermail);
-            $run = $stmt->execute();
+            $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (count($result) === 1) {
 
@@ -27,6 +28,14 @@
         
         } catch(PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
+        }
+
+    }
+
+    // função checkUserLogin verifica se a sessão userlogin esta setada, caso esteja, envia o usuário para ao index.php
+    function checkUserLogin(){
+        if (isset($_SESSION['userlogin'])) {
+            header("location:index.php");
         }
 
     }
@@ -43,4 +52,88 @@
             header("Refresh: 0");
         } else {
         }
+    }
+
+    // função register($name,$doc,$mail,$pwd,$conection,$cell=null) para enviar para o banco de dados os dados cadastrais do novo usuário.
+    // $name = Nome completo do usuário
+    // $doc = CPF do usuário
+    // $mail = Email do usuário
+    // $pwd = password do usuário que já passou pela verificação se as 2 senhas são repetidas.
+    // $conection = Objeto de conexão com o banco de dados.
+    // $cell = Celular do usuário, caso esteja vazio receberá o valor nulo.
+
+    function register($userObj,$conection){
+
+        try {
+
+            // checagem se o e-mail está cadastrado no banco de dados.
+            $checkMail = $conection->prepare('SELECT * FROM users WHERE mail = :email'); 
+            $checkMail->bindValue(':email', $userObj->getMail());
+            $checkMail->execute();
+            $resultMail = $checkMail->fetchAll(PDO::FETCH_BOTH);
+
+            $CheckAll = new CheckMailCellDup();
+
+
+            if (count($resultMail) > 0){
+                // se o resultado for maior que 0 retorna "true" para o email
+                $CheckAll->setCheckMail(true);
+            }
+            
+            // checagem se o celular esta cadastrado no banco de dados.
+            $checkCell = $conection->prepare('SELECT * FROM users WHERE cellphone = :cell'); 
+            $checkCell->bindValue(':cell', $userObj->getCellPhone());
+            $checkCell->execute();
+            $resultCell = $checkCell->fetchAll(PDO::FETCH_BOTH);
+            if (count($resultCell) > 0){
+
+                // se o resultado for maior que 0 retorna "true" para o email
+                $CheckAll->setCheckCell(true);
+
+                return $CheckAll;
+                
+            }
+
+
+            // se até aqui a variavel $CheckAll não foi setada, quer dizer que nenhum dos dados enviados pelo usuário se encontra no banco de dados
+            // retornará true para confirmação de cadastro.
+            if (!$CheckAll){
+
+                $CheckAll->setCheckSafe(true);
+
+            }
+
+            return $CheckAll;
+
+
+
+
+            
+            
+            // $stmt = $conection->prepare('INSERT INTO users(name,cellphone,mail,password) VALUES(:namee, :cell, :email, :pass)');
+            // $stmt->bindValue(':namee', $userObj->getName());
+            // $stmt->bindValue(':cell', $userObj->getCellPhone());
+            // $stmt->bindValue(':email', $userObj->getMail());
+            // $stmt->bindValue(':pass', MD5($userObj->getPassword()));
+
+
+            // $run = $stmt->execute();
+            
+        } catch(PDOException $e) {
+            
+            if (strpos($e->getMessage(), '1062') !== false) {
+
+                if (strpos($e->getMessage(), '@') !== false) {
+
+                    $mailDuplicate = "seu e-mail já esta cadastrado, use um e-mail diferente ou recupere sua senha.";
+                    
+                
+                }
+                
+            }
+            echo 'ERROR: ' . $e->getMessage();
+
+        }
+
+
     }
