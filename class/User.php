@@ -11,9 +11,23 @@
         private $registered;
         private $conf_mail;
         private $conf_cel;
-        public $msg_success;
-        public $msg_error;
         private $type;
+
+        public function __construct($name = null, $cellPhone = null, $mail = null, $password = null, $user_id = null, $document = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "user"){
+                $this->name = $name;
+                $this->cellPhone = $cellPhone;
+                $this->mail = $mail;
+                $this->password = $password;
+                $this->user_id = $user_id;
+                $this->document = $document;
+                $this->adress = $adress;
+                $this->wallet = $wallet;
+                $this->registered = $registered;
+                $this->conf_mail = $conf_mail;
+                $this->conf_cel = $conf_cel;
+                $this->type = $type;
+
+        }
 
         
 
@@ -264,47 +278,5 @@
 
                 return $this;
         }
-
-
-        /**
-         * Get the value of msg_error
-         */ 
-        public function getMsg_error()
-        {
-                return $this->msg_error;
-        }
-
-        /**
-         * Set the value of msg_error
-         *
-         * @return  self
-         */ 
-        public function setMsg_error($msg_error)
-        {
-                $this->msg_error = $msg_error;
-
-                return $this;
-        }
-
-        /**
-         * Get the value of msg_success
-         */ 
-        public function getMsg_success()
-        {
-                return $this->msg_success;
-        }
-
-        /**
-         * Set the value of msg_success
-         *
-         * @return  self
-         */ 
-        public function setMsg_success($msg_success)
-        {
-                $this->msg_success = $msg_success;
-
-                return $this;
-        }
-
         
     }

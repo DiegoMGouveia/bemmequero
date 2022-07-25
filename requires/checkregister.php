@@ -14,11 +14,15 @@
 						// verifica se os campos de senha estão iguais
 						if ($_POST["inputpassword"] === $_POST["inputpasswordrepeat"]){
 							
-							$formObj = new User();
-							$formObj->setName($_POST["inputname"]);
-							$formObj->setCellPhone($_POST["inputcell"]);
-							$formObj->setMail($_POST["inputmail"]);
-							$formObj->setPassword($_POST["inputpassword"]);
+							$formArray = [
+
+								$_POST["inputname"],
+								$_POST["inputcell"],
+								$_POST["inputmail"],
+								$_POST["inputpassword"]
+
+							];
+							$formObj = new User($formArray[0], $formArray[1], $formArray[2], $formArray[3]);
 							// var_dump($formObj);
 							$Registered = register($formObj,$conn);
 							

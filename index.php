@@ -3,7 +3,8 @@
     require("functions/functions.php");
 
     // requiremento de todas as classes necessárias para o projeto.
-    require_once __DIR__ . "class/classes.php";
+    require('class/classes.php');
+
     session_start();
     
 ?>

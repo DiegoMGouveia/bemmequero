@@ -21,7 +21,7 @@
                 logout();
             }
 
-            echo "Olá " . $_SESSION['userlogin']->name . " seja bem-vindo(a)."; ?><form action="#logout" class="signin-form" method="post"> <button class="btn btn-dark btn-sm" name="logout" type="submit">Sair.</button></form>
+            echo "Olá " . $_SESSION['userlogin']->getName() . " seja bem-vindo(a)."; ?><form action="#logout" class="signin-form" method="post"> <button class="btn btn-dark btn-sm" name="logout" type="submit">Sair.</button></form>
 
             </div> 
         </div> 
@@ -54,7 +54,7 @@
         <?php 
         }
         // verifica se o usuário logado é administrador
-        if ($_SESSION['userlogin']->type == "Admin"){ 
+        if ($_SESSION['userlogin']->getType() == "Admin"){ 
             ?>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#">Administração</a>

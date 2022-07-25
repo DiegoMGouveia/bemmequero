@@ -2,6 +2,22 @@
 
 Todas mudanças realizadas neste projeto serão documentadas neste arquivo a partir de hoje 2022-07-06.
 
+## [0.2.2] - 2022-07-24 21:29
+ 
+### Added
+
+- Novo diretório /admin com conteúdo para o front do painel administrativo.
+- Página do Dashboard esta sendo montada.
+
+
+### Removed
+
+### Changed
+
+- Alterado a classe User e a forma como a $_SESSION["userlogin"] era escrita ao fazer o login.
+
+
+
 ## [0.2.1] - 2022-07-23 00:49
 
 ### Added

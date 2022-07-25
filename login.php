@@ -11,7 +11,7 @@
 	session_start();
 
 	// verifica se o usuário ja efetuou o login, caso esteja logado, redirecionará para a página inicial.
-	checkUserLogin();
+	// checkUserLogin();
 	
 
 	// verifica se o usuário e senha estão setados
@@ -19,13 +19,27 @@
 	if(isset($_POST["usermail"]) && isset($_POST["password"])){
 
 		// se verdadeiro, irá verificar se os dados digitados estão no banco de dados.
-        $login = login($_POST["usermail"],MD5($_POST["password"]),$conn);
-        if ( $login == false ){
+        $Login = login($_POST["usermail"],MD5($_POST["password"]),$conn);
+        if ( $Login == false ){
             //login errado irá retornar a variavel $mensagem com a mensagem de erro.
             $mensagem = "Usuário/senha incorreto. Tente novamente.";
         } else {
 			// caso retorne o objeto, criará uma sessão com o objeto $login retornado.
-            $_SESSION['userlogin'] = (object)$login;
+			
+            $_SESSION['userlogin'] = new User();
+			$_SESSION['userlogin']->setUser_id($Login->user_id);
+			$_SESSION['userlogin']->setName($Login->name);
+			$_SESSION['userlogin']->setCellPhone($Login->cellphone);
+			$_SESSION['userlogin']->setMail($Login->mail);
+			$_SESSION['userlogin']->setPassword($Login->password);
+			$_SESSION['userlogin']->setDocument($Login->document);
+			$_SESSION['userlogin']->setAdress($Login->adress);
+			$_SESSION['userlogin']->setWallet($Login->wallet);
+			$_SESSION['userlogin']->setRegistered($Login->registered);
+			$_SESSION['userlogin']->setConf_mail($Login->conf_mail);
+			$_SESSION['userlogin']->setConf_cel($Login->conf_cel);
+			$_SESSION['userlogin']->setType($Login->type);
+
 			header("location:index.php");
         } 
 
@@ -34,7 +48,7 @@
 
 
 <!doctype html>
-<html lang="Pt-Br">
+<html lang="PT-BR">
   <head>
   	<title>Login 07</title>
     <meta charset="utf-8">

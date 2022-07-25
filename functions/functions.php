@@ -1,4 +1,5 @@
 <?php
+
     // Aqui se encontram todas funções utilizada neste projeto.
 
     // Função login: função que irá verificar e tratar os dados recebidos para efetuar o login, 
@@ -17,8 +18,9 @@
             $stmt->bindValue(':email', $usermail);
             $stmt->bindValue(':cell', $usermail);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
             if (count($result) === 1) {
+
 
                 return $result[0];
 
