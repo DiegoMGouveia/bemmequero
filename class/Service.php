@@ -1,69 +1,65 @@
-<?php   
+<?php
+
     class Service {
-        public $title = null;
-        public $description = null;
-        public $img = null;
-        public $price = null;
-        
 
-        /**
-         * Get the value of title
-         */ 
-        public function getTitle()
-        {
-                return $this->title;
-        }
+        private $serviceID;
+        private $name;
+        private $price;
+        private $description;
+        private $promotion;
+        private $imagem;
 
-        /**
-         * Set the value of title
-         *
-         * @return  self
-         */ 
-        public function setTitle($title)
-        {
-                $this->title = $title;
-
-                return $this;
-        }
-
-
-        /**
-         * Get the value of description
-         */ 
-        public function getDescription()
-        {
-                return $this->description;
-        }
-
-        /**
-         * Set the value of description
-         *
-         * @return  self
-         */ 
-        public function setDescription($description)
-        {
+        public function __construct($name, $price, $description, $imagem = null, $promotion = null, $serviceID = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
+                
+                $this->serviceID = $serviceID;
+                $this->name = $name;
+                $this->price = $price;
                 $this->description = $description;
+                $this->promotion = $promotion;
+                $this->imagem = $imagem;
+        }
+
+        
+        
+        
+
+        /**
+         * Get the value of serviceID
+         */ 
+        public function getServiceID()
+        {
+                return $this->serviceID;
+        }
+
+        /**
+         * Set the value of serviceID
+         *
+         * @return  self
+         */ 
+        public function setServiceID($serviceID)
+        {
+                $this->serviceID = $serviceID;
 
                 return $this;
         }
         
 
         /**
-         * Get the value of img
+         * Get the value of name
          */ 
-        public function getImg()
+        public function getName()
         {
-                return $this->img;
+                return $this->name;
         }
 
         /**
-         * Set the value of img
+         * Set the value of name
          *
          * @return  self
          */ 
-        public function setImg($img)
+        public function setName($name)
         {
-                $this->img = $img;
+                $this->name = $name;
 
                 return $this;
         }
@@ -89,4 +85,67 @@
                 return $this;
         }
         
+
+        /**
+         * Get the value of description
+         */ 
+        public function getDescription()
+        {
+                return $this->description;
+        }
+
+        /**
+         * Set the value of description
+         *
+         * @return  self
+         */ 
+        public function setDescription($description)
+        {
+                $this->description = $description;
+
+                return $this;
+        }
+        
+
+        /**
+         * Get the value of promotion
+         */ 
+        public function getPromotion()
+        {
+                return $this->promotion;
+        }
+
+        /**
+         * Set the value of promotion
+         *
+         * @return  self
+         */ 
+        public function setPromotion($promotion)
+        {
+                $this->promotion = $promotion;
+
+                return $this;
+        }
+        
+
+        /**
+         * Get the value of imagem
+         */ 
+        public function getImagem()
+        {
+                return $this->imagem;
+        }
+
+        /**
+         * Set the value of imagem
+         *
+         * @return  self
+         */ 
+        public function setImagem($imagem)
+        {
+                $this->imagem = $imagem;
+
+                return $this;
+        }
+
     }

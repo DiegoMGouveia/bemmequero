@@ -2,6 +2,30 @@
 
 Todas mudanças realizadas neste projeto serão documentadas neste arquivo a partir de hoje 2022-07-06.
 
+
+## [0.2.3] - 2022-07-28 15:37
+ 
+### Added
+
+- Criado layout de formulário para criar um novo serviço.
+
+### Removed
+
+- Vários itens do menu esquerdo.
+- Todo o conteúdo que estavam na página inicial do painel administrativo.
+
+
+### Changed
+
+- Menu esquerdo do painel administrativo, reformulado possuindo agora apenas 3 categorias de menus, Serviços (novo serviço e ver serviços), Gallery (Nova Imagem, Ver Imagens), Caixa De Mensagem (Caixa de entrada, Enviar Mensagem).
+- Reformulada a classe Service.php para se adequar ao banco de dados, sendo obrigatório inserir o Nome, Preço e Descrição para criar um novo objeto Service.
+- codigo php para efetuar o login foi modificado, agora usando o metodo construtor do objeto.
+- Nova mensagem ao acessar o painel administrativo.
+- Agora ao acessar a pagina de administração, a logo da página aparece no carregamento inicial.
+
+
+
+
 ## [0.2.2] - 2022-07-24 21:29
  
 ### Added

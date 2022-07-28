@@ -26,19 +26,8 @@
         } else {
 			// caso retorne o objeto, criará uma sessão com o objeto $login retornado.
 			
-            $_SESSION['userlogin'] = new User();
-			$_SESSION['userlogin']->setUser_id($Login->user_id);
-			$_SESSION['userlogin']->setName($Login->name);
-			$_SESSION['userlogin']->setCellPhone($Login->cellphone);
-			$_SESSION['userlogin']->setMail($Login->mail);
-			$_SESSION['userlogin']->setPassword($Login->password);
-			$_SESSION['userlogin']->setDocument($Login->document);
-			$_SESSION['userlogin']->setAdress($Login->adress);
-			$_SESSION['userlogin']->setWallet($Login->wallet);
-			$_SESSION['userlogin']->setRegistered($Login->registered);
-			$_SESSION['userlogin']->setConf_mail($Login->conf_mail);
-			$_SESSION['userlogin']->setConf_cel($Login->conf_cel);
-			$_SESSION['userlogin']->setType($Login->type);
+            $_SESSION['userlogin'] = new User($Login->name,$Login->cellphone,$Login->name,$Login->password,$Login->user_id,$Login->document,$Login->adress,$Login->wallet,$Login->registered,$Login->conf_mail,$Login->conf_cel,$Login->type);
+			
 
 			header("location:index.php");
         } 
@@ -50,7 +39,7 @@
 <!doctype html>
 <html lang="PT-BR">
   <head>
-  	<title>Login 07</title>
+  	<title>Login Studio Bem Me Quero</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

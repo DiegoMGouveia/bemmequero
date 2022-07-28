@@ -1,4 +1,5 @@
 <?php
+
     class User {
         private $user_id;
         private $name;
@@ -13,7 +14,7 @@
         private $conf_cel;
         private $type;
 
-        public function __construct($name = null, $cellPhone = null, $mail = null, $password = null, $user_id = null, $document = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "user"){
+        public function __construct($name = null, $cellPhone = null, $mail = null, $password = null, $user_id = null, $document = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
                 $this->name = $name;
                 $this->cellPhone = $cellPhone;
                 $this->mail = $mail;

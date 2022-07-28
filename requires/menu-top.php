@@ -40,45 +40,47 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#home">Inicio</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#home">Inicio</a>
         </li>
         <?php 
         // verificação de login, de o usuário estiver logado, não mostrará o campo login/registro.
-        if (!isset($_SESSION['userlogin'])){ ?>
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="register.php">Cadastrar</a>
-        </li>
-        <?php 
-        }
+        if (!isset($_SESSION['userlogin'])){ 
+            ?>
+
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="register.php">Cadastrar</a>
+            </li>
+            <?php 
+
         // verifica se o usuário logado é administrador
-        if ($_SESSION['userlogin']->getType() == "Admin"){ 
+        }elseif ("Admin" == $_SESSION['userlogin']->getType()){ 
             ?>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#">Administração</a>
+                <a class="nav-link js-scroll-trigger" href="admincp.php">Administração</a>
             </li>
             <?php 
         }
         ?>
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#services">Serviços</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Sobre Nós</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#about">Sobre Nós</a>
         </li>  
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Profissional</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#team">Profissional</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Estilo do cliente</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#portfolio">Estilo do cliente</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#testimonials">Depoimentos</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#testimonials">Depoimentos</a>
         </li> 
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
+            <a class="nav-link js-scroll-trigger" href="index.php#contact">Contato</a>
         </li>
         </ul>
     </div>

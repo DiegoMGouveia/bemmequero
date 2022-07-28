@@ -8,7 +8,7 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="pages/forms/general.html" class="nav-link">
+        <a href="?newservice" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Novo Serviço</p>
         </a>
@@ -16,7 +16,9 @@
         <li class="nav-item">
         <a href="pages/forms/advanced.html" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Todos Serviços</p>
+            <p>Ver Serviços</p>
+        </a>
         </li>
+        
     </ul>
 </li>

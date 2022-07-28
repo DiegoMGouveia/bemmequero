@@ -26,6 +26,13 @@
 							// var_dump($formObj);
 							$Registered = register($formObj,$conn);
 							
+							// debugando saida $Registered
+							
+							// echo "<pre>";
+							// var_dump($Registered);
+							// echo "</pre>";
+
+							
 
 						}else{
 							$pwdNotSame = "As senhas devem ser iguais!";

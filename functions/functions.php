@@ -99,40 +99,23 @@
 
             // se até aqui a variavel $CheckAll não foi setada, quer dizer que nenhum dos dados enviados pelo usuário se encontra no banco de dados
             // retornará true para confirmação de cadastro.
-            if (!$CheckAll){
+            if (null == $CheckAll->getCheckMail() && null == $CheckAll->getCheckCell()){
 
                 $CheckAll->setCheckSafe(true);
+                $stmt = $conection->prepare('INSERT INTO users(name,cellphone,mail,password) VALUES(:namee, :cell, :email, :pass)');
+                $stmt->bindValue(':namee', $userObj->getName());
+                $stmt->bindValue(':cell', $userObj->getCellPhone());
+                $stmt->bindValue(':email', $userObj->getMail());
+                $stmt->bindValue(':pass', MD5($userObj->getPassword()));
+                $stmt->execute();
 
             }
 
             return $CheckAll;
 
-
-
-
-            
-            
-            // $stmt = $conection->prepare('INSERT INTO users(name,cellphone,mail,password) VALUES(:namee, :cell, :email, :pass)');
-            // $stmt->bindValue(':namee', $userObj->getName());
-            // $stmt->bindValue(':cell', $userObj->getCellPhone());
-            // $stmt->bindValue(':email', $userObj->getMail());
-            // $stmt->bindValue(':pass', MD5($userObj->getPassword()));
-
-
-            // $run = $stmt->execute();
-            
+            // caso retorne algum erro, a mensagem informará o erro.
         } catch(PDOException $e) {
             
-            if (strpos($e->getMessage(), '1062') !== false) {
-
-                if (strpos($e->getMessage(), '@') !== false) {
-
-                    $mailDuplicate = "seu e-mail já esta cadastrado, use um e-mail diferente ou recupere sua senha.";
-                    
-                
-                }
-                
-            }
             echo 'ERROR: ' . $e->getMessage();
 
         }

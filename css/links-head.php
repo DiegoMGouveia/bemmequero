@@ -4,9 +4,9 @@
 <meta content="img/bmq-logo.png" name="msapplication-TileImage">
 
 <meta property="og:url" content="https://127.0.0.1/Salon-master/index.php" />
-<meta property="og:title" content="Bem Me Quero Studio" />
+<meta property="og:title" content="Studio Bem Me Quero" />
 <meta property="og:locale" content="pt_BR" /> 
-<meta property="og:site_name" content="Bem Me Quero Studio" />
+<meta property="og:site_name" content="Studio Bem Me Quero" />
 
 <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:400,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
