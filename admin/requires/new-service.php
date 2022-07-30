@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-    <form action="admincp.php?newservice" method="post">
+    <form action="admincp.php?newservice" method="POST" enctype="multipart/form-data">
         <div class="row">
         <div class="col-sm-6">
             <!-- nome input -->
@@ -35,8 +35,8 @@
                 <!-- <label for="customFile">Custom File</label> -->
 
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="inputImageService" id="imageService">
-                    <label class="custom-file-label" name="imageService" for="imageService">Escolha uma imagem...</label>
+                    <input type="file" accept="image/*" class="custom-file-input" name="inputImageService" id="imageService">
+                    <label class="custom-file-label" for="inputImageService">Escolha uma imagem...</label>
                 </div>
             </div>
             <button type="submit" name="serviceSend" class="btn btn-primary">Criar Serviço</button>

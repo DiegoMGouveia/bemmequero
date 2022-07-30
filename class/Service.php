@@ -7,16 +7,16 @@
         private $price;
         private $description;
         private $promotion;
-        private $imagem;
+        private $image;
 
-        public function __construct($name, $price, $description, $imagem = null, $promotion = null, $serviceID = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
+        public function __construct($name, $price, $description, $image = null, $promotion = null, $serviceID = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
                 
                 $this->serviceID = $serviceID;
                 $this->name = $name;
                 $this->price = $price;
                 $this->description = $description;
                 $this->promotion = $promotion;
-                $this->imagem = $imagem;
+                $this->image = $image;
         }
 
         
@@ -129,21 +129,21 @@
         
 
         /**
-         * Get the value of imagem
+         * Get the value of image
          */ 
-        public function getImagem()
+        public function getImage()
         {
-                return $this->imagem;
+                return $this->image;
         }
 
         /**
-         * Set the value of imagem
+         * Set the value of image
          *
          * @return  self
          */ 
-        public function setImagem($imagem)
+        public function setImage($image)
         {
-                $this->imagem = $imagem;
+                $this->imagem = $image;
 
                 return $this;
         }

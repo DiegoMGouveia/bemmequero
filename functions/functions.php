@@ -108,6 +108,7 @@
                 $stmt->bindValue(':email', $userObj->getMail());
                 $stmt->bindValue(':pass', MD5($userObj->getPassword()));
                 $stmt->execute();
+                var_dump($stmt);
 
             }
 
@@ -119,6 +120,32 @@
             echo 'ERROR: ' . $e->getMessage();
 
         }
+
+
+    }
+
+
+    function insertNewService($serviceObj, $conection){
+
+
+
+            try {
+                $stmt = $conection->prepare('INSERT INTO services(name,price,description,image) VALUES(:namee, :pric, :descr, :img)');
+                $stmt->bindValue(':namee', $serviceObj->getName());
+                $stmt->bindValue(':pric', $serviceObj->getPrice());
+                $stmt->bindValue(':descr', $serviceObj->getDescription());
+                $stmt->bindValue(':img', $serviceObj->getImage());
+            
+
+                $stmt->execute();
+                return true;
+    
+            } catch(PDOException $e) {
+            
+                echo 'ERROR: ' . $e->getMessage();
+                return false;
+    
+            }
 
 
     }

@@ -3,11 +3,14 @@
 
     require ("bmqdb/connection.php");
     require ("functions/functions.php");
+    checkUserLogin();
 
     // requiremento de todas as classes necessárias para o projeto.
     require('class/classes.php');
 
+
     session_start();
+
     
 ?>
 
@@ -31,9 +34,9 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__wobble" src="img/logo4.png" alt="Studio Bem Me Quero logo" height="80" width="80">
-  </div>
+  </div> -->
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark">
@@ -261,10 +264,21 @@
               $name = $_POST["inputNameService"];
               $price = $_POST["inputValorService"];
               $description = $_POST["inputDescriptionService"];
-              $image = $_POST["inputImageService"];
+              $image = $_FILES["inputImageService"];
+              // Manipulando arquivo de imagem
+              $ext = strtolower(substr($image['name'],-4)); //Pegando extensão do arquivo
+              $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+              $dir = 'img/service/'; //Diretório para uploads 
+              $newPath = $dir . $new_name;
+              move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
+              echo("Imagen enviada com sucesso![$newPath]");
 
-              $NewService = new Service($name,$price,$description,$image);
-              // var_dump($NewService);
+              $NewService = new Service($name,$price,$description,$newPath);
+              echo "<pre>";
+              var_dump($NewService);
+              echo "<pre>";
+
+              $insertResult = insertNewService($NewService, $conn);
 
             };
 

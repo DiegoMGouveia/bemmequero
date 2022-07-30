@@ -11,7 +11,7 @@
 	session_start();
 
 	// verifica se o usuário ja efetuou o login, caso esteja logado, redirecionará para a página inicial.
-	// checkUserLogin();
+	checkUserLogin();
 	
 
 	// verifica se o usuário e senha estão setados

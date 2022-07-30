@@ -3,6 +3,26 @@
 Todas mudanças realizadas neste projeto serão documentadas neste arquivo a partir de hoje 2022-07-06.
 
 
+
+## [0.2.4] - 2022-07-30 20:42
+ 
+### Added
+
+- Nova função insertNewService($serviceObj, $conection) - Usada para tratar e dados e criar novo serviço no banco de dados.
+- Agora imagens enviadas no cadastro de um novo serviço são movidas para "img/service".
+
+### Removed
+
+
+
+### Changed
+
+- Algumas partes do codigo foram editadas para padronização e melhoria na leitura.
+
+
+
+
+
 ## [0.2.3] - 2022-07-28 15:37
  
 ### Added
