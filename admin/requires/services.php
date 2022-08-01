@@ -2,7 +2,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Lista de serviços:</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -27,13 +27,16 @@
                       <th class="col-3" >Nome do Serviço</th>
                       <th class="col-1">Preço</th>
                       <th class="col-5" >Descrição</th>
+                      <th class="col-1" >Ação</th>
                     </tr>
                   </thead>
+                  
                   <tbody>
                     <?php 
                         // inicio do loop
                         
                         $servicesReturn = getAllServices($conn);
+
                         foreach($servicesReturn as $row){
                           
                           echo "<div class='container'>";
@@ -41,8 +44,9 @@
                           echo "<td>{$row['serviceID']}</td>";
                           echo "<td><img src='" . $row['image'] . "' alt='{$row['name']}' width='150'></td>";
                           echo "<td>{$row['name']}</td>";
-                          echo "<td>{$row['price']}</td>";
-                          echo "<td class='w-auto p-3'>" . substr($row['description'], 0, 50) . "</td>";
+                          echo "<td>R\${$row['price']}</td>";
+                          echo "<td class='w-auto p-3'>" . substr($row['description'], 0, 80) . "</td>";
+                          echo "<td><a href='admincp.php?service={$row['serviceID']}'><button type='submit'>Ver</button></a></td>";
                           echo "</tr>";
                           echo "</div>";
 

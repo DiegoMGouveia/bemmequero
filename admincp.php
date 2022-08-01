@@ -284,6 +284,9 @@
         } elseif (isset($_GET["services"])){
           // irá listar todos os serviços cadastrado no banco de dados.
           require("admin/requires/services.php");
+        } elseif (isset($_GET["service"])){
+          // irá mostrar informações de um serviço cadastrado no banco de dados.
+          require("admin/requires/service.php");
         }
         ?>
       </div><!--/. container-fluid -->

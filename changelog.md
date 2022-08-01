@@ -3,6 +3,30 @@
 Todas mudanças realizadas neste projeto serão documentadas neste arquivo a partir de hoje 2022-07-06.
 
 
+<!-- ## [0.2.6] - 2022-08-XX XX:XX
+ 
+### Added
+
+### Removed
+
+### Changed -->
+
+
+## [0.2.6] - 2022-08-01 20:16
+ 
+### Added
+
+- Ao clicar no botão "Ver" no menu "Ver Serviços" do painel de administração, irá levar a uma página de edição do serviço, onde dentro de cada campo, estará os dados do serviço. Ainda não é possivel editar o banco de dados.
+
+### Removed
+
+
+
+### Changed
+
+- Algumas funções que inserem/modificam dados, verificam antes se o usuário logado é administrador, caso não seja, aparecerá uma mensagem.
+
+
 ## [0.2.5] - 2022-08-1 10:17
  
 ### Added

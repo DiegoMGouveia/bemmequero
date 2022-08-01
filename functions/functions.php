@@ -130,6 +130,9 @@
 
     function insertNewService($serviceObj, $conection){
 
+        if($_SESSION["userlogin"]->getType() == "Admin"){
+        
+
 
 
             try {
@@ -148,6 +151,11 @@
     
             }
 
+        } else{
+            echo "Somente o administrador pode fazer isso!";
+        }
+
+
 
     }
 
@@ -160,7 +168,7 @@
             
         } else {
 
-            $query = 'SELECT * FROM services WHERE name = :search OR description = :search ';
+            $query = 'SELECT * FROM services WHERE serviceID = :search OR name = :search OR description = :search ';
         }
 
         $stmt = $conection->prepare($query);
@@ -172,6 +180,27 @@
         $stmt->execute();
         $result = $stmt->fetchAll();
         return $result;
+        
+    }
+
+    function getService($conection, $serviceId){
+
+        if($_SESSION["userlogin"]->getType() == "Admin"){
+
+            $query = 'SELECT * FROM services WHERE serviceID = :search ';
+
+
+            $stmt = $conection->prepare($query);
+            $stmt->bindValue(':search', $serviceId);
+
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result[0];
+        } else{
+            echo "Somente o administrador pode fazer isso!";
+        }
+
+        
         
     }
 
