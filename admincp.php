@@ -271,12 +271,8 @@
               $dir = 'img/service/'; //Diretório para uploads 
               $newPath = $dir . $new_name;
               move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
-              echo("Imagen enviada com sucesso![$newPath]");
 
               $NewService = new Service($name,$price,$description,$newPath);
-              echo "<pre>";
-              var_dump($NewService);
-              echo "<pre>";
 
               $insertResult = insertNewService($NewService, $conn);
 
@@ -285,7 +281,10 @@
             require("admin/requires/new-service.php");
 
 
-        };
+        } elseif (isset($_GET["services"])){
+          // irá listar todos os serviços cadastrado no banco de dados.
+          require("admin/requires/services.php");
+        }
         ?>
       </div><!--/. container-fluid -->
     </section>

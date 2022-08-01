@@ -3,6 +3,22 @@
 Todas mudanças realizadas neste projeto serão documentadas neste arquivo a partir de hoje 2022-07-06.
 
 
+## [0.2.5] - 2022-08-1 10:17
+ 
+### Added
+
+- Na página de admincp.php o menu lateral possui 2 opções:
+    "Novo Serviço" possui um formulário nque o usuário preenche com seus dados e envia uma imagem que cadastra um novo serviço no banco de dados,
+    "Ver Serviços" O usuário ve a lista de serviços cadastrados no banco de dados, ainda não é possivel pesquisar por serviços especificos.
+- Back-End que recebe as imagens enviadas pelo usuário altera o nome do arquivo informando data e hora do envio em seu nome e depois move o arquivo para a pasta "img/service".
+
+
+### Removed
+
+
+
+### Changed
+
 
 ## [0.2.4] - 2022-07-30 20:42
  

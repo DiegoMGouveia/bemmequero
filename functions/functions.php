@@ -44,9 +44,13 @@
 
     // função de teste podendo ser alterada a qualquer momento a fim de testar alguma variavel ou objeto
     function teste($conection){
+        echo "<pre>";
         var_dump($conection);
+        echo "</pre>";
+
     }
     
+    // Função para encerrar a sessão do usuário
     function logout(){
         if(isset($_SESSION['userlogin'])) {
             //excluir a variavel de sessão
@@ -108,7 +112,6 @@
                 $stmt->bindValue(':email', $userObj->getMail());
                 $stmt->bindValue(':pass', MD5($userObj->getPassword()));
                 $stmt->execute();
-                var_dump($stmt);
 
             }
 
@@ -135,8 +138,6 @@
                 $stmt->bindValue(':pric', $serviceObj->getPrice());
                 $stmt->bindValue(':descr', $serviceObj->getDescription());
                 $stmt->bindValue(':img', $serviceObj->getImage());
-            
-
                 $stmt->execute();
                 return true;
     
@@ -149,3 +150,29 @@
 
 
     }
+
+
+    function getAllServices($conection, $search = null){
+
+        if ($search === null) {
+            
+            $query = 'SELECT * FROM services'; 
+            
+        } else {
+
+            $query = 'SELECT * FROM services WHERE name = :search OR description = :search ';
+        }
+
+        $stmt = $conection->prepare($query);
+        if ($search != null){
+    
+            $stmt->bindValue(':search', $search);
+
+        }
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+        
+    }
+
+    
