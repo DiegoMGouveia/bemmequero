@@ -3,13 +3,31 @@
 Todas mudanças realizadas neste projeto serão documentadas neste arquivo a partir de hoje 2022-07-06.
 
 
-<!-- ## [0.2.6] - 2022-08-XX XX:XX
+<!-- 
+
+## [0.2.6] - 2022-08-XX XX:XX
  
 ### Added
 
 ### Removed
 
-### Changed -->
+### Changed 
+
+-->
+
+
+## [0.2.7] - 2022-08-3 12:31
+ 
+### Added
+
+- Novo botão Deletar no menu Serviços -> Ver Serviços -> Deletar. Ao clicar no botão "Deletar", o usuário é levado a uma página quepergunta se ele realmente quer fazer isso, caso confirme o serviço será deletado.
+- Função delService($conection), será necessário enviar a variavel de conexão, já que a função irá pegar o dado enviado por GET.
+
+### Removed
+
+### Changed 
+
+- versão do Admincp.php agora é 0.2.7 [informação do rodapé da página.]
 
 
 ## [0.2.6] - 2022-08-01 20:16

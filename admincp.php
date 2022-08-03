@@ -287,7 +287,21 @@
         } elseif (isset($_GET["service"])){
           // irá mostrar informações de um serviço cadastrado no banco de dados.
           require("admin/requires/service.php");
+        } elseif (isset($_GET["delService"])){
+          // irá perguntar se o usuário deseja deletar um serviço cadastrado no banco de dados.
+          require("admin/requires/delService.php");
+        } elseif(isset($_GET["deleteServ"])){
+
+            
+            $deleted = delService($conn);
+            if ($deleted == true){
+              echo "<p>Serviço deletado com sucesso!</p>";
+            }
+
         }
+        
+        // teste($deleted);
+
         ?>
       </div><!--/. container-fluid -->
     </section>
@@ -306,7 +320,7 @@
     <strong>Copyright &copy; 2022 <a href="https://www.linkedin.com/in/diegomaltagouveia/">Diego M. Gouveia</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.2.2
+      <b>Version</b> 0.2.7
     </div>
   </footer>
 </div>

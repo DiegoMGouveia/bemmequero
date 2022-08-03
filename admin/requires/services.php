@@ -22,12 +22,12 @@
                   <thead>
                     <tr>
                       
-                      <th class="col-1">ID</th>
-                      <th class="col-1">Imagem</th>
-                      <th class="col-3" >Nome do Serviço</th>
-                      <th class="col-1">Preço</th>
-                      <th class="col-5" >Descrição</th>
-                      <th class="col-1" >Ação</th>
+                      <th class="col-1 text-center">ID</th>
+                      <th class="col-1 text-center">Imagem</th>
+                      <th class="col-3 text-center">Nome do Serviço</th>
+                      <th class="col-1 text-center">Preço</th>
+                      <th class="col-5 text-center" >Descrição</th>
+                      <th class="col-1 text-center" >Ação</th>
                     </tr>
                   </thead>
                   
@@ -44,13 +44,12 @@
                           echo "<td>{$row['serviceID']}</td>";
                           echo "<td><img src='" . $row['image'] . "' alt='{$row['name']}' width='150'></td>";
                           echo "<td>{$row['name']}</td>";
-                          echo "<td>R\${$row['price']}</td>";
+                          echo "<td class='text-center'>R\${$row['price']}</td>";
                           echo "<td class='w-auto p-3'>" . substr($row['description'], 0, 80) . "</td>";
-                          echo "<td><a href='admincp.php?service={$row['serviceID']}'><button type='submit'>Ver</button></a></td>";
+                          echo "<td class='center'><a href='admincp.php?service={$row['serviceID']}'><button type='submit' class='bg-success'>Ver</button></a><a href='admincp.php?delService={$row['serviceID']}'><button type='submit' class='bg-danger'>Deletar</button></a></td>";
                           echo "</tr>";
                           echo "</div>";
-
-
+                          
 
                       }
 

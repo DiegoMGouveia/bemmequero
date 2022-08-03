@@ -204,4 +204,28 @@
         
     }
 
+    function delService($conection){
+
+        if($_SESSION["userlogin"]->getType() == "Admin"){
+            $serviceId = $_GET["deleteServ"];
+
+            $query = "DELETE FROM services WHERE serviceID = :search";
+
+            $stmt = $conection->prepare($query);
+            $stmt->bindValue(':search', $serviceId);
+
+            $stmt->execute();
+
+
+            return true;
+        } else{
+            echo "Somente o administrador pode fazer isso!";
+        }
+
+        
+        
+    }
+
+
+
     
