@@ -216,6 +216,10 @@
 
               
           <?php
+
+          // Menu Usuários
+          require("admin/requires/menu-users.php");
+
           // menu serviços
             require("admin/requires/menu-left-services.php");
 
@@ -224,6 +228,9 @@
 
           // menu Caixa de mensagens
           require("admin/requires/menu-left-mailbox.php");
+
+          // menu Configurações do site
+          require("admin/requires/config.php");
           ?>
 
         </ul>
@@ -275,7 +282,7 @@
               $NewService = new Service($name,$price,$description,$newPath);
 
               $insertResult = insertNewService($NewService, $conn);
-
+              teste($insertResult);
             };
 
             require("admin/requires/new-service.php");
@@ -295,7 +302,7 @@
             
             $deleted = delService($conn);
             if ($deleted == true){
-              echo "<p>Serviço deletado com sucesso!</p>";
+              require("admin/requires/confirmDelServiceMsg.php");
             }
 
         }
@@ -320,7 +327,7 @@
     <strong>Copyright &copy; 2022 <a href="https://www.linkedin.com/in/diegomaltagouveia/">Diego M. Gouveia</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.2.7
+      <b>Version</b> 0.2.8
     </div>
   </footer>
 </div>

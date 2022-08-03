@@ -8,7 +8,7 @@
 
         <div>
             <a href="admincp.php?deleteServ=<?php echo $_GET['delService'];?>"><button type="submit" class="bg-danger">Sim, quero deletar!</button></a>
-            <button type="submit" class="bg-warning">Não, quero voltar.</button>
+            <a href="admincp.php?services"><button type="submit" class="bg-warning">Não, quero voltar.</button></a>
         </div>
         </div>
         <!-- /.card-body -->

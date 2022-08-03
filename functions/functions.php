@@ -142,6 +142,7 @@
                 $stmt->bindValue(':descr', $serviceObj->getDescription());
                 $stmt->bindValue(':img', $serviceObj->getImage());
                 $stmt->execute();
+                
                 return true;
     
             } catch(PDOException $e) {

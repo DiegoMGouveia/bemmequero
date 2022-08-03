@@ -15,6 +15,30 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 -->
 
+## [0.2.8] - 2022-08-03 17:34
+ 
+### Added
+
+- Agora ao deletar um serviço, aparecerá uma mensagem informando que o serviço foi deletado e em 5 segundos o usuário será redirecionado automaticamente a listagem de serviços.
+- Agora todos os serviços cadastrado no banco de dados, são apresentados na página inicial.
+- Novas opções para alterar informações da página foram adicionadas ao menu lateral do painel administrativo:
+    Menu->Usuários
+        Novo Usuário
+        Ver Usuários
+    Nenu->Configurações
+        Nome da página
+        Sobre Nós
+        Especialidades
+        Profissionais
+ Estas opções ainda não estão com suas funcionalidades ativas, foi desenvolvido apenas o front em HTML e Bootstrap..
+
+### Removed
+
+### Changed 
+
+- versão do Admincp.php agora é 0.2.8 [informação do rodapé da página.]
+
+
 
 ## [0.2.7] - 2022-08-3 12:31
  
