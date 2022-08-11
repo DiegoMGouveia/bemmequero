@@ -13,16 +13,26 @@
 
 						// verifica se os campos de senha estão iguais
 						if ($_POST["inputpassword"] === $_POST["inputpasswordrepeat"]){
+
+
+							$image = $_FILES["inputImageService"];
+							// Manipulando arquivo de imagem
+							$ext = strtolower(substr($image['name'],-4)); //Pegando extensão do arquivo
+							$new_name = $_SESSION["userlogin"]->getName() . $ext; //Definindo um novo nome para o arquivo
+							$dir = 'img/profile/'; //Diretório para uploads 
+							$newPath = $dir . $new_name;
+							move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
 							
 							$formArray = [
 
 								$_POST["inputname"],
 								$_POST["inputcell"],
 								$_POST["inputmail"],
-								$_POST["inputpassword"]
+								$_POST["inputpassword"],
+								$newPath
 
 							];
-							$formObj = new User($formArray[0], $formArray[1], $formArray[2], $formArray[3]);
+							$formObj = new User($formArray[0], $formArray[1], $formArray[2], $formArray[3], $formArray[4]);
 							// var_dump($formObj);
 							$Registered = register($formObj,$conn);
 							

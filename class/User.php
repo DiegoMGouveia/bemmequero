@@ -13,12 +13,14 @@
         private $conf_mail;
         private $conf_cel;
         private $type;
+        private $image;
 
-        public function __construct($name = null, $cellPhone = null, $mail = null, $password = null, $user_id = null, $document = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
+        public function __construct($name = null, $cellPhone = null, $mail = null, $password = null, $image = null, $user_id = null, $document = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
                 $this->name = $name;
                 $this->cellPhone = $cellPhone;
                 $this->mail = $mail;
                 $this->password = $password;
+                $this->image = $image;
                 $this->user_id = $user_id;
                 $this->document = $document;
                 $this->adress = $adress;
@@ -280,4 +282,24 @@
                 return $this;
         }
         
+
+        /**
+         * Get the value of image
+         */ 
+        public function getImage()
+        {
+                return $this->image;
+        }
+
+        /**
+         * Set the value of image
+         *
+         * @return  self
+         */ 
+        public function setImage($image)
+        {
+                $this->image = $image;
+
+                return $this;
+        }
     }

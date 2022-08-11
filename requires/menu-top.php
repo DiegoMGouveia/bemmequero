@@ -13,8 +13,8 @@
         <?php 
         // verificação de login, de o usuário estiver logado irá apresentar uma mensagem de boas vindas.
         if (isset($_SESSION['userlogin'])){ ?>
-        <div class="col-md-4 col-sm-4 address"> 
-            <div><i class="fa fa-map-marker"></i> 
+        <div class="col-md-4 col-sm-4 address">
+            <div><i class="fa fa-solid fa-user"></i> 
             <?php
             // verifica se o botão logout foi ACIONADO
             if (isset($_POST['logout'])){

@@ -19,7 +19,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio Bem Me Quero | Dashboard</title>
+  <title>Studio Bem Me Quero | Painel do usuário</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,6 +38,7 @@
     <img class="animation__wobble" src="img/logo4.png" alt="Studio Bem Me Quero logo" height="80" width="80">
   </div> -->
 
+  
   <?php
     // Navbar / Menu topo + notificações
     require("admin/requires/menu-topo.php");
@@ -48,7 +49,7 @@
     <!-- Brand Logo -->
     <a href="admincp.php" class="brand-link">
       <img src="img/logo4.png" alt="Studio Bem Me Quero Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Administração</span>
+      <span class="brand-text font-weight-light">Painel do usuário</span>
     </a>
 
     <!-- Sidebar -->
@@ -85,19 +86,9 @@
           <?php
 
           // Menu Usuários
-          require("admin/requires/menu-users.php");
+          require("user/menu-info-user.php");
 
-          // menu serviços
-            require("admin/requires/menu-left-services.php");
 
-          // menu galeria
-          require("admin/requires/menu-left-gallery.php");
-
-          // menu Caixa de mensagens
-          require("admin/requires/menu-left-mailbox.php");
-
-          // menu Configurações do site
-          require("admin/requires/menu-config.php");
           ?>
 
         </ul>
@@ -114,12 +105,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Painel Administrativo - Studio Bem Me Quero</h1>
+            <h1 class="m-0">Painel de Usuário - Studio Bem Me Quero</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-              <li class="breadcrumb-item active">Painel Administrativo</li>
+              <li class="breadcrumb-item active">Painel do usuário</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -130,51 +121,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <?php 
-          if (isset($_GET["newservice"])){
-
-            if (isset($_POST["serviceSend"])){
-              // back-end novo serviço
-              $name = $_POST["inputNameService"];
-              $price = $_POST["inputValorService"];
-              $description = $_POST["inputDescriptionService"];
-              $image = $_FILES["inputImageService"];
-              // Manipulando arquivo de imagem
-              $ext = strtolower(substr($image['name'],-4)); //Pegando extensão do arquivo
-              $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
-              $dir = 'img/service/'; //Diretório para uploads 
-              $newPath = $dir . $new_name;
-              move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
-
-              $NewService = new Service($name,$price,$description,$newPath);
-
-              $insertResult = insertNewService($NewService, $conn);
-              teste($insertResult);
-            };
-
-            require("admin/requires/new-service.php");
-
-
-        } elseif (isset($_GET["services"])){
-          // irá listar todos os serviços cadastrado no banco de dados.
-          require("admin/requires/services.php");
-        } elseif (isset($_GET["service"])){
-          // irá mostrar informações de um serviço cadastrado no banco de dados.
-          require("admin/requires/service.php");
-        } elseif (isset($_GET["delService"])){
-          // irá perguntar se o usuário deseja deletar um serviço cadastrado no banco de dados.
-          require("admin/requires/delService.php");
-        } elseif(isset($_GET["deleteServ"])){
-
-            
-            $deleted = delService($conn);
-            if ($deleted == true){
-              require("admin/requires/confirmDelServiceMsg.php");
-            }
-
-        }
-        
-        // teste($deleted);
+        <?php
+          require("user/profile-content.php");
 
         ?>
       </div><!--/. container-fluid -->
@@ -194,7 +142,7 @@
     <strong>Copyright &copy; 2022 <a href="https://www.linkedin.com/in/diegomaltagouveia/">Diego M. Gouveia</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.2.8
+      <b>Version</b> 0.2.9
     </div>
   </footer>
 </div>
@@ -222,7 +170,7 @@
 
 
 <!-- AdminLTE for demo purposes -->
-<script src="admin/dist/js/demo.js"></script>
+<!-- <script src="admin/dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="admin/dist/js/pages/dashboard2.js"></script>
 

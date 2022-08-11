@@ -15,6 +15,21 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 -->
 
+## [0.2.9] - 2022-08-11 10:18
+ 
+### Added
+
+- Nova opção no menu superior, Meus Dados. Esta opção será destinada aos dados do proprio usuário, Observação, o campo "Notes" não possui dados do usuário, há uma mensagem lore ipsum.
+- Agora a imagem no painel administrativo mostra a foto do usuário, caso ele tenha uma própria já adicionada ao seu perfil, caso contrário irá apresentar uma imagem padrão do sistema.
+
+### Removed
+
+- Pasta vazia /register/
+
+### Changed 
+
+- Agora o usuário quando se cadastra e não adiciona uma foto/imagem ao seu perfil, possuirá uma imagem padrão "img/profile/noimg.jpg".
+
 ## [0.2.8] - 2022-08-03 17:34
  
 ### Added
@@ -30,7 +45,7 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
         Sobre Nós
         Especialidades
         Profissionais
- Estas opções ainda não estão com suas funcionalidades ativas, foi desenvolvido apenas o front em HTML e Bootstrap..
+ Estas opções ainda não estão com suas funcionalidades ativas, foi desenvolvido apenas o front em HTML e Bootstrap.
 
 ### Removed
 

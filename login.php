@@ -26,7 +26,7 @@
         } else {
 			// caso retorne o objeto, criará uma sessão com o objeto $login retornado.
 			
-            $_SESSION['userlogin'] = new User($Login->name,$Login->cellphone,$Login->name,$Login->password,$Login->user_id,$Login->document,$Login->adress,$Login->wallet,$Login->registered,$Login->conf_mail,$Login->conf_cel,$Login->type);
+            $_SESSION['userlogin'] = new User($Login->name,$Login->cellphone,$Login->mail,$Login->password,$Login->image,$Login->user_id,$Login->document,$Login->adress,$Login->wallet,$Login->registered,$Login->conf_mail,$Login->conf_cel,$Login->type);
 			
 
 			header("location:index.php");

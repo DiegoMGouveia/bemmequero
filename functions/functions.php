@@ -106,11 +106,12 @@
             if (null == $CheckAll->getCheckMail() && null == $CheckAll->getCheckCell()){
 
                 $CheckAll->setCheckSafe(true);
-                $stmt = $conection->prepare('INSERT INTO users(name,cellphone,mail,password) VALUES(:namee, :cell, :email, :pass)');
+                $stmt = $conection->prepare('INSERT INTO users(name,cellphone,mail,password,image) VALUES(:namee, :cell, :email, :pass, :img)');
                 $stmt->bindValue(':namee', $userObj->getName());
                 $stmt->bindValue(':cell', $userObj->getCellPhone());
                 $stmt->bindValue(':email', $userObj->getMail());
                 $stmt->bindValue(':pass', MD5($userObj->getPassword()));
+                $stmt->bindValue(':img', $userObj->getImage());
                 $stmt->execute();
 
             }
