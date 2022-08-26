@@ -15,6 +15,25 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 -->
 
+## [0.3.0] - 2022-08-25 22:02
+ 
+### Added
+
+- Painel administrativo -> usuários -> ver usuários a lista com todos usuários cadastrado no banco de dados é mostrada, informando ID, Nome, Categoria(tipo), Documento, celular, e-mail e carteira do usuário. com 2 opções:
+  1- Selecionar: Mostrará todas as informações do usuário em um formulário possibilitando a alteração dos dados.
+  2- Excluir: Irá deletar o usuário imediatamente, irei adicionar em uma versão futura uma pergunta de confirmação para evitar falha humana.
+
+- instalado composer para o funcionamento do PHPMailer, que ainda não está executando o envio de e-mails, será modificado em versões futuras.
+
+
+
+### Removed
+
+
+### Changed 
+- otimização no arquivo functions/functions.php, afim de melhorar a qualidade de escrita do código e atualizado descrições de algumas funções.
+
+
 ## [0.2.9] - 2022-08-11 10:18
  
 ### Added

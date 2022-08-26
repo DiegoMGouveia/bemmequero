@@ -1,6 +1,6 @@
 <?php
-	
-	
+	session_start();
+
 	require_once("bmqdb/connection.php");
     require("functions/functions.php");
 
@@ -8,31 +8,38 @@
     require_once("class/classes.php");
 
 
-	session_start();
-
-	// verifica se o usuário ja efetuou o login, caso esteja logado, redirecionará para a página inicial.
-	checkUserLogin();
+	if (isset($_SESSION["userlogin"]))
+	{
+		
+	}
 	
-
 	// verifica se o usuário e senha estão setados
 
-	if(isset($_POST["usermail"]) && isset($_POST["password"])){
+	if(!isset ($_SESSION["userlogin"]))
+	{
+		if(isset($_POST["usermail"]) && isset($_POST["password"]))
+		{
 
-		// se verdadeiro, irá verificar se os dados digitados estão no banco de dados.
-        $Login = login($_POST["usermail"],MD5($_POST["password"]),$conn);
-        if ( $Login == false ){
-            //login errado irá retornar a variavel $mensagem com a mensagem de erro.
-            $mensagem = "Usuário/senha incorreto. Tente novamente.";
-        } else {
-			// caso retorne o objeto, criará uma sessão com o objeto $login retornado.
-			
-            $_SESSION['userlogin'] = new User($Login->name,$Login->cellphone,$Login->mail,$Login->password,$Login->image,$Login->user_id,$Login->document,$Login->adress,$Login->wallet,$Login->registered,$Login->conf_mail,$Login->conf_cel,$Login->type);
-			
+			// se verdadeiro, irá verificar se os dados digitados estão no banco de dados.
+			$Login = login($_POST["usermail"],MD5($_POST["password"]),$conn);
+			if ( $Login == false )
+			{
+				//login errado irá retornar a variavel $mensagem com a mensagem de erro.
+				$mensagem = "Usuário/senha incorreto. Tente novamente.";
+			} else 
+			{
+				// caso retorne o objeto, criará uma sessão com o objeto $login retornado.
+				
+				$_SESSION['userlogin'] = new User($Login->name,$Login->cellphone,$Login->mail,$Login->password,$Login->image,$Login->user_id,$Login->document,$Login->adress,$Login->wallet,$Login->registered,$Login->conf_mail,$Login->conf_cel,$Login->type);
+				
+				// verifica se o usuário ja efetuou o login, caso esteja logado, redirecionará para a página inicial.
+				checkUserLogin();
+				
+			} 
 
-			header("location:index.php");
-        } 
-
-    }
+		}
+	}
+	
 ?>
 
 

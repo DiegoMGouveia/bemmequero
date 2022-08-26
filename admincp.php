@@ -131,6 +131,8 @@
     <section class="content">
       <div class="container-fluid">
         <?php 
+          
+
           if (isset($_GET["newservice"])){
 
             if (isset($_POST["serviceSend"])){
@@ -149,7 +151,6 @@
               $NewService = new Service($name,$price,$description,$newPath);
 
               $insertResult = insertNewService($NewService, $conn);
-              teste($insertResult);
             };
 
             require("admin/requires/new-service.php");
@@ -157,7 +158,7 @@
 
         } elseif (isset($_GET["services"])){
           // irá listar todos os serviços cadastrado no banco de dados.
-          require("admin/requires/services.php");
+          require("admin/requires/list-services.php");
         } elseif (isset($_GET["service"])){
           // irá mostrar informações de um serviço cadastrado no banco de dados.
           require("admin/requires/service.php");
@@ -171,6 +172,54 @@
             if ($deleted == true){
               require("admin/requires/confirmDelServiceMsg.php");
             }
+
+        } elseif (isset($_GET["listusers"])){
+
+          require("admin/requires/list-users.php");
+
+        } elseif (isset($_GET["seluser"])){
+
+          if (isset($_POST["updateSend"]))
+          {
+            $UserObj = getUser($conn,$_GET["seluser"]);
+            
+            if($_FILES["inputImageUser"] > 0)
+            {
+              // verifica se a extensão é uma extensão qualificada
+              $ext = strtolower(substr($_FILES["inputImageUser"]['name'],-4));
+              if ($ext == ".jpg" || $ext == ".png" || $ext == ".gif" || $ext == ".bmp")
+              {
+
+                $image = $_FILES["inputImageUser"];
+
+                // verifica se a imagem não é a padrão do sistema antes de deletar
+                if ($UserObj->getImage() != "img/profile/noimg.jpg")
+                {
+                  
+                  unlink($UserObj->getImage());
+
+                }
+
+                $UserObj->setImage(uploadImgUser($image));
+
+              }
+              
+            }
+
+            $UpdatedUser = updateUser($conn, $UserObj);
+                        
+          }
+
+          require("admin/requires/seluser.php");
+
+        } elseif(isset($_GET["deleteUsr"]))
+        {
+              // Deletar Usuário
+          $deleted = delUser($conn);
+          if ($deleted == true)
+          {
+            require("admin/requires/confirmDelUserMsg.php");
+          }
 
         }
         
