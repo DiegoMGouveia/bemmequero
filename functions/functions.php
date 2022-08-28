@@ -413,6 +413,66 @@
     }
 
 
+    // galeria
+     // Função insertNewGallery usada para adicionar uma nova imagem ao banco de dados.
+     function insertNewGallery($galleryObj, $conection)
+     {
+ 
+         if($_SESSION["userlogin"]->getType() == "Admin")
+         {
+         
+             try {
+                 $stmt = $conection->prepare('INSERT INTO gallery(title,path,date) VALUES(:title, :path, :date)');
+                 $stmt->bindValue(':title', $galleryObj->getTitle());
+                 $stmt->bindValue(':path', $galleryObj->getPath());
+                 $stmt->bindValue(':date', $galleryObj->getDate());
+                 $stmt->execute();
+                 
+                 return true;
+     
+             } catch(PDOException $e)
+             {
+             
+                 echo 'ERROR: ' . $e->getMessage();
+                 return false;
+     
+             }
+ 
+         } else{
+             echo "Somente o administrador pode fazer isso!";
+         }
+ 
+ 
+ 
+     }
+
+
+    // Deletar Imagem [Admin]
+
+    function delGallery($conection)
+    {
+
+        if($_SESSION["userlogin"]->getType() == "Admin")
+        {
+            $galleryId = $_GET["deleteGlry"];
+
+            $query = "DELETE FROM gallery WHERE galleryID = :search";
+
+            $stmt = $conection->prepare($query);
+            $stmt->bindValue(':search', $galleryId);
+
+            $stmt->execute();
+
+
+            return true;
+        } else
+        {
+            echo "Somente o administrador pode fazer isso!";
+        }
+
+        
+        
+    }
 
 
 

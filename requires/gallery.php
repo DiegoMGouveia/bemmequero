@@ -13,57 +13,57 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-1.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-1.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-1.jpg" title="Salon Style 1">
+                        <img src="img/portfolio/portfolio-1.jpg" alt="Salon Style 1" class="img-fluid">
                     </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-2.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-2.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-2.jpg" title="Salon Style 2">
+                        <img src="img/portfolio/portfolio-2.jpg" alt="Salon Style 2" class="img-fluid">
                     </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-3.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-3.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-3.jpg" title="Salon Style 3">
+                        <img src="img/portfolio/portfolio-3.jpg" alt="Salon Style 3" class="img-fluid">
                     </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-4.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-4.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-4.jpg" title="Salon Style 4">
+                        <img src="img/portfolio/portfolio-4.jpg" alt="Salon Style 4" class="img-fluid">
                     </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-8.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-8.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-8.jpg" title="Salon Style 5">
+                        <img src="img/portfolio/portfolio-8.jpg" alt="Salon Style 5" class="img-fluid">
                     </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-6.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-6.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-6.jpg" title="Salon Style 6">
+                        <img src="img/portfolio/portfolio-6.jpg" alt="Salon Style 6" class="img-fluid">
                     </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-7.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-7.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-7.jpg" title="Salon Style 7">
+                        <img src="img/portfolio/portfolio-7.jpg" alt="Salon Style 7" class="img-fluid">
                     </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 p-0">
                 <div class="port-cont">
-                    <a href="img/portfolio/portfolio-5.jpg" title="Salon Style">
-                        <img src="img/portfolio/portfolio-5.jpg" alt="Salon Style" class="img-fluid">
+                    <a href="img/portfolio/portfolio-5.jpg" title="Salon Style 8">
+                        <img src="img/portfolio/portfolio-5.jpg" alt="Salon Style 8" class="img-fluid">
                     </a>
                 </div>
             </div>

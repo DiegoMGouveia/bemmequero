@@ -5,7 +5,7 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 <!-- 
 
-## [0.2.6] - 2022-08-XX XX:XX
+## [0.3.2] - 2022-08-XX XX:XX
  
 ### Added
 
@@ -14,6 +14,23 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 ### Changed 
 
 -->
+
+## [0.3.1] - 2022-08-28 00:02
+ 
+### Added
+
+-Painel Administrativo -> Galeria -> nova Imagem: agora tem um formulário que ao preencher e selecionar uma imagem, envia para a pasta "img/portfolio" e armazena os dados no banco de dados.
+-Nova função "insertNewGallery" usada para inserir a nova imagem da galeria para o banco de dados.
+-Nova função "delGallery" usada para deletar a imagem do banco de dados(ainda não testado).
+
+
+### Removed
+
+### Changed 
+
+-Codigo organizado no arquivo admincp.php para melhor leitura e facil entendimento.
+-Alterado alguns nomes de atributos da classe Gallery.php para se adequar ao banco de dados e de acordo com o front do index.php
+
 
 ## [0.3.0] - 2022-08-25 22:02
  

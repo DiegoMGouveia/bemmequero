@@ -1,54 +1,64 @@
 <?php
     class Gallery {
-        public $name;
-        public $description;
+        private $id;
+        public $title;
         public $path;
         public $likes;
         public $date;
-        
+
+
+        public function __construct($title, $path, $date, $id = null, $likes = null){
+                
+                $this->id = $id;
+                $this->title = $title;
+                $this->path = $path;
+                $this->date = $date;
+                $this-> likes = $likes;
+        }
+
 
         /**
-         * Get the value of name
+         * Get the value of id
          */ 
-        public function getName()
+        public function getId()
         {
-                return $this->name;
+                return $this->id;
         }
 
         /**
-         * Set the value of name
+         * Set the value of id
          *
          * @return  self
          */ 
-        public function setName($name)
+        public function setId($id)
         {
-                $this->name = $name;
+                $this->id = $id;
+
+                return $this;
+        }
+        
+
+        /**
+         * Get the value of title
+         */ 
+        public function getTitle()
+        {
+                return $this->title;
+        }
+
+        /**
+         * Set the value of title
+         *
+         * @return  self
+         */ 
+        public function setTitle($title)
+        {
+                $this->name = $title;
 
                 return $this;
         }
 
         
-        /**
-         * Get the value of description
-         */ 
-        public function getDescription()
-        {
-                return $this->description;
-        }
-
-        /**
-         * Set the value of description
-         *
-         * @return  self
-         */ 
-        public function setDescription($description)
-        {
-                $this->description = $description;
-
-                return $this;
-        }
-
-
         /**
          * Get the value of path
          */ 
@@ -110,4 +120,5 @@
 
                 return $this;
         }
+        
     }
