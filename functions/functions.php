@@ -339,7 +339,7 @@
 
     }
 
-
+    // lista todos os serviços ou o resultado de uma pesquisa
     function getAllServices($conection, $search = null)
     {
 
@@ -368,6 +368,7 @@
         
     }
 
+    // seleciona um serviço pelo ID
     function getService($conection, $serviceId)
     {
 
@@ -447,14 +448,18 @@
      }
 
 
-    // Deletar Imagem [Admin]
+    // Deletar Imagem pelo GET[Admin] 
 
     function delGallery($conection)
     {
 
         if($_SESSION["userlogin"]->getType() == "Admin")
         {
-            $galleryId = $_GET["deleteGlry"];
+            $galleryId = $_GET["delGlry"];
+
+            $selphoto = getPhoto($conection, $galleryId);
+            unlink($selphoto["path"]);
+
 
             $query = "DELETE FROM gallery WHERE galleryID = :search";
 
@@ -469,10 +474,54 @@
         {
             echo "Somente o administrador pode fazer isso!";
         }
-
-        
-        
+ 
     }
+
+
+
+    // lista todos as fotos ou o resultado de uma pesquisa
+    function getAllPhotos($conection, $search = null)
+    {
+
+        if ($search === null)
+        {
+            
+            $query = 'SELECT * FROM gallery'; 
+            
+        } else
+        {
+
+            $query = 'SELECT * FROM gallery WHERE galleryID = :search OR title = :search ';
+        }
+
+        $stmt = $conection->prepare($query);
+
+        if ($search != null)
+        {
+    
+            $stmt->bindValue(':search', $search);
+
+        }
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+                
+    }
+
+
+    // seleciona um foto pelo ID
+    function getPhoto($conection, $galleryId)
+    {
+
+        $query = 'SELECT * FROM gallery WHERE galleryID = :search ';
+        $stmt = $conection->prepare($query);
+        $stmt->bindValue(':search', $galleryId);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result[0];
+
+    }
+
 
 
 

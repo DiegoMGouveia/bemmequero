@@ -63,9 +63,8 @@
         move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
 
         $NewGallery = new Gallery($title, $newPath, $date);
-        var_dump($NewGallery);
-
         $insertResult = insertNewGallery($NewGallery, $conn);
+        echo "Foto publicada com sucesso!";
 
       }
 
@@ -75,7 +74,7 @@
     {
 
         // irá listar todos as imagens cadastrado no banco de dados.
-        require("admin/requires/list-services.php");
+        require("admin/requires/list-images.php");
 
     } elseif (isset($_GET["selgallery"]))
     {
@@ -87,16 +86,16 @@
     {
 
         // irá perguntar se o usuário deseja deletar um serviço cadastrado no banco de dados.
-        require("admin/requires/delService.php");
+        require("admin/requires/delGlry.php");
 
-    } elseif(isset($_GET["deleteGlry"]))
+    } elseif(isset($_GET["delGlry"]))
     {
         
         $deleted = delGallery($conn);
         if ($deleted == true)
         {
 
-            require("admin/requires/confirmDelServiceMsg.php");
+            require("admin/requires/confirmDelGalleryMsg.php");
 
         }
 

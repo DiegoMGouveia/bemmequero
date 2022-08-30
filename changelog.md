@@ -15,6 +15,20 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 -->
 
+
+## [0.3.2] - 2022-08-29 22:34
+ 
+### Added
+
+
+### Removed
+
+### Changed 
+
+-As imagens da galeria agora são as imagens cadastradas no banco de dados.
+-A função "delGallery" testada, está funcionando, foi ajustada para deletar a imagem vinculada.
+
+
 ## [0.3.1] - 2022-08-28 00:02
  
 ### Added
