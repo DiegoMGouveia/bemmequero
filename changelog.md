@@ -15,6 +15,16 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 -->
 
+## [0.3.3] - 2022-08-29 22:40
+ 
+### Added
+- adicionado o banco de dados com dados usado no teste do projeto.
+
+
+### Removed
+
+### Changed 
+
 
 ## [0.3.2] - 2022-08-29 22:34
  
