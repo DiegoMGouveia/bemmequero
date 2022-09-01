@@ -11,4 +11,7 @@
 
     // Service.php = classe usada para manipular os serviços
     require("class/Service.php");
+
+    // Config.php = classe usada para manipulação de dados de configurações do site.
+    require("class/Config");
     

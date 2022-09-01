@@ -4,6 +4,7 @@
 	require_once("bmqdb/connection.php");
     require("functions/functions.php");
 
+
     // requiremento de todas as classes necessárias para o projeto.
     require_once("class/classes.php");
 
@@ -11,7 +12,13 @@
 	if (isset($_SESSION["userlogin"]))
 	{
 		
+		checkUserLogin();
+
+		
 	}
+
+	$Config = getConfig($conn);
+
 	
 	// verifica se o usuário e senha estão setados
 
@@ -46,7 +53,7 @@
 <!doctype html>
 <html lang="PT-BR">
   <head>
-  	<title>Login Studio Bem Me Quero</title>
+  	<title>Login <?php echo $Config->getName();?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -67,7 +74,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Login - Studio Bem Me Quero</h2>
+					<h2 class="heading-section">Login - <?php echo $Config->getName();?></h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">

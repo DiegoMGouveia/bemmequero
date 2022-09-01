@@ -15,6 +15,24 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 -->
 
+
+## [0.3.4] - 2022-08-31 21:08
+ 
+### Added
+
+-Front formulário de configuração do site na area administrativa, onde receberá e informará dados e contato do site.
+
+-Foi adicionado ao banco de dados uma nova tabela de configurações (config) onde guardara os seguintes dados: Nome, E-mail, Telefone e Endereço.
+
+-Nova função "getConfig($conection)" que retornará o objeto com os dados do banco de dados com informações de configurações do site. Usada em toddas páginas onde o nome do site é apresentado, tornando a edição do nome do site mais dinâmica de edição.
+
+
+### Removed
+
+### Changed 
+
+
+
 ## [0.3.3] - 2022-08-29 22:40
  
 ### Added

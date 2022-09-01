@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" id="mainNav" data-toggle="affix">
     <div class="container-fluid">
-              	<a class="navbar-brand js-scroll-trigger" href="index.php"><img src="img/logo3.jpg" style="max-height: 60px;" alt="" class="img-fluid"> <span class="h2">Bem Me Quero Studio</span></a>
+              	<a class="navbar-brand js-scroll-trigger" href="index.php"><img src="img/logo3.jpg" style="max-height: 60px;" alt="" class="img-fluid"> <span class="h2"><?php echo $Config->getName();?></span></a>
     <button class="navbar-toggler navbar-toggler-center  ml-auto py-3 my-2 " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fa fa-bars"></i>

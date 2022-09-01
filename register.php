@@ -10,6 +10,7 @@
 	require("requires/checkregister.php");
 
     session_start();
+    $Config = getConfig($conn);
 
 
 
@@ -22,7 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Cadastrar - Studio Bem Me Quero</title>
+	<title>Cadastrar - <?php echo $Config->getName();?></title>
 	
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
 

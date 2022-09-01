@@ -6,6 +6,7 @@
     require('class/classes.php');
 
     session_start();
+    $Config = getConfig($conn);
     
 ?>
 
@@ -15,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem Me Quero Studio</title>
+    <title><?php echo $Config->getName();?></title>
     
     <!-- links de estilo -->
     <?php require("css/links-head.php"); ?>

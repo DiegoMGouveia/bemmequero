@@ -523,6 +523,69 @@
     }
 
 
+    // CONFIG ~~
+
+     // Função usada para atualizar as informações de configuração do site no banco de dados.
+     function updateConfig($configObj, $conection)
+     {
+ 
+         if($_SESSION["userlogin"]->getType() == "Admin")
+         {
+         
+             try {
+                 $stmt = $conection->prepare('INSERT INTO config(name,mail,phone,address) VALUES(:name, :mail, :phone, address)');
+                 $stmt->bindValue(':name', $configObj->getName());
+                 $stmt->bindValue(':mail', $configObj->getMail());
+                 $stmt->bindValue(':phone', $configObj->getPhone());
+                 $stmt->bindValue(':address', $configObj->getAddress());
+                 $stmt->execute();
+                 
+                 return true;
+     
+             } catch(PDOException $e)
+             {
+             
+                 echo 'ERROR: ' . $e->getMessage();
+                 return false;
+     
+             }
+ 
+         } else{
+             echo "Somente o administrador pode fazer isso!";
+         }
+ 
+ 
+ 
+     }
+
+    // Retornará o objeto com os dados do banco de dados com informações de configurações do site.
+     function getConfig($conection)
+     {
+
+        try
+        {
+
+            $stmt = $conection->prepare('SELECT * FROM config ');
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            if (count($result) === 1) {
+
+
+                $Config = new Config($result[0]->name,$result[0]->mail,$result[0]->phone,$result[0]->address);
+
+                return $Config;
+
+            } else {
+                return false;
+            }
+        
+        } catch(PDOException $e) {
+            echo 'ERROR: ' . $e->getMessage();
+        }
+
+    }
+
+
 
 
 

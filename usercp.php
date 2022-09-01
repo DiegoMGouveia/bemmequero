@@ -10,6 +10,7 @@
 
 
     session_start();
+    $Config = getConfig($conn);
 
     
 ?>
@@ -19,7 +20,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio Bem Me Quero | Painel do usuário</title>
+  <title><?php echo $Config->getName();?> | Painel do usuário</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -35,7 +36,7 @@
 
   <!-- Preloader -->
   <!-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="img/logo4.png" alt="Studio Bem Me Quero logo" height="80" width="80">
+    <img class="animation__wobble" src="img/logo4.png" alt="<?php echo $Config->getName();?> logo" height="80" width="80">
   </div> -->
 
   
@@ -48,7 +49,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="admincp.php" class="brand-link">
-      <img src="img/logo4.png" alt="Studio Bem Me Quero Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="img/logo4.png" alt="<?php echo $Config->getName();?> Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Painel do usuário</span>
     </a>
 
@@ -105,7 +106,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Painel de Usuário - Studio Bem Me Quero</h1>
+            <h1 class="m-0">Painel de Usuário - <?php echo $Config->getName();?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
