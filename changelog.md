@@ -5,7 +5,7 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 <!-- 
 
-## [0.3.2] - 2022-08-XX XX:XX
+## [0.3.2] - 2022-09-XX XX:XX
  
 ### Added
 
@@ -14,6 +14,21 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 ### Changed 
 
 -->
+
+
+## [0.3.5] - 2022-09-03 00:23
+ 
+### Added
+
+-Formulário com input titulo, descrição e imagem do conteúdo "sobre nós", por enquanto apenas coleta os dados do banco e dados e preenche os inputs para que o usuário possa alterar.(modificação de dados ainda não foi implantada.)
+-Nova função getAbout($conection) retorna um objeto About com os seguintes atributos: titulo, descrição e imagem.
+
+
+### Removed
+
+### Changed 
+
+-
 
 
 ## [0.3.4] - 2022-08-31 21:08

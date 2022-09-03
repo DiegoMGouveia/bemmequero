@@ -13,5 +13,8 @@
     require("class/Service.php");
 
     // Config.php = classe usada para manipulação de dados de configurações do site.
-    require("class/Config");
+    require("class/Config.php");
+
+    // About.php = classe usada para manipulação de dados da area Sobre Nós no site.
+    require("class/About.php");
     

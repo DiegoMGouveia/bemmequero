@@ -83,5 +83,5 @@ if (isset($_GET["config"]))
     </div>
 
     <?php
-}
+} 
 ?>

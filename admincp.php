@@ -145,8 +145,10 @@
           require("admin/requires/managegallery.php");
           
           // config
-          getConfig($conn);
           require("admin/requires/manage-config.php");
+
+          // Sobre Nós
+          require("admin/requires/manage-about.php");
           
         
         // teste($deleted);

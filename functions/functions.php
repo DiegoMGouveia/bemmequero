@@ -585,6 +585,34 @@
 
     }
 
+    // Sobre Nós
+    // irá retornar os dados da tabela about no banco de dados.
+    function getAbout($conection)
+    {
+
+        try
+        {
+
+            $stmt = $conection->prepare('SELECT * FROM about ');
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            if (count($result) === 1) {
+
+
+                $About = new About($result[0]->title,$result[0]->description,$result[0]->image);
+
+                return $About;
+
+            } else {
+                return false;
+            }
+        
+        } catch(PDOException $e) {
+            echo 'ERROR: ' . $e->getMessage();
+        }
+
+    }
+
 
 
 

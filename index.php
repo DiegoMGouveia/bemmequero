@@ -7,6 +7,7 @@
 
     session_start();
     $Config = getConfig($conn);
+    $About = getAbout($conn);
     
 ?>
 

@@ -12,16 +12,16 @@
         </div>
         <div class="row">
             <div class="col-md-4 my-auto">
-                <div class="body-cont mb-5 wow fadeInUp" data-wow-delay="0.6s">
-                    <h3>Se te faz feliz e te dá bem-estar, você merece mais!  </h3>
+                <div class="body-cont mb-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <h3><?php echo $About->getTitle();?></h3>
                     <div class="bord-bottom"></div>
-                    <p>Profissionais que estão a anos no mercado da beleza, transformando a vida de muitas mulheres que procuram dar um Up no visual e na autoestima, a <?php echo $Config->getName();?> aguarda a tua presença, venha ser feliz também!</p>
+                    <p><?php echo $About->getDescription();?></p>
                     <a href="#contact" class="img-fluid js-scroll-trigger"><button class="btn btn-general btn-white">Contate-nos</button></a>
                 </div>
             </div>
             <div class="col-md-8 m-auto text-center">
                 <div class="body-img-1 wow fadeInUp" data-wow-delay="0.9s">
-                    <img src="img/treamer-small.png" alt="" class="img-fluid">
+                    <img src="<?php echo $About->getImage();?>" alt="" class="img-fluid">
                 </div>
             </div>
         </div> 
