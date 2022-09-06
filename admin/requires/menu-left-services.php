@@ -1,4 +1,4 @@
-<li class="nav-item">
+<li class="nav-item <?php $class = getOPenServiceMenu();  echo $class; ?>">
     <a href="#" class="nav-link">
         <i class="nav-icon fas fa-edit"></i>
         <p>

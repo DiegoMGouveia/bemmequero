@@ -6,6 +6,20 @@
     require('class/classes.php');
 
     session_start();
+    
+    if (isset($_SESSION["roolback"]))
+    {
+        $roolback = $_SESSION["roolback"];
+        unset($_SESSION["roolback"]);
+        if ($_SESSION["userlogin"]->getType() === "Admin")
+        {
+            header("location:" . $roolback);
+        } elseif($_SESSION["userlogin"]->getType() === "user")
+        {
+            header("location:usercp.php");
+        }
+    }
+
     $Config = getConfig($conn);
     $About = getAbout($conn);
     

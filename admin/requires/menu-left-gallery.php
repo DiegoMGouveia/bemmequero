@@ -1,4 +1,4 @@
-<li class="nav-item">
+<li class="nav-item <?php $class = getOPenGalleryMenu();  echo $class; ?>">
     <a href="pages/gallery.html" class="nav-link">
         <i class="nav-icon far fa-image"></i>
         <p>

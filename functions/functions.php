@@ -64,7 +64,131 @@
         }
     }
 
+    // função para pegar a página atual e alterar os dados da classe
+    // neste caso estará verificando se a pagina atual pertence ao menu de usuários
+    function getOpenUserMenu()
+    {
+        $page = $_SERVER['REQUEST_URI'];
+        $str = $page;
+        if (strpos($str, 'listusers') !== false)
+        {
+            
+            return 'nav-item menu-is-opening menu-open';
 
+        } elseif (strpos($str, 'newuser'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'seluser'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'deleteUsr'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        }
+        
+
+    }
+
+    // neste caso estará verificando se a pagina atual pertence ao menu de serviços
+    function getOpenServiceMenu()
+    {
+        $page = $_SERVER['REQUEST_URI'];
+        $str = $page;
+        if (strpos($str, 'newservice') !== false)
+        {
+            
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'services'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'service'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'delService'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'deleteServ'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        }
+        
+
+    }
+
+    // neste caso estará verificando se a pagina atual pertence ao menu de galeria de fotos
+    function getOpenGalleryMenu()
+    {
+        $page = $_SERVER['REQUEST_URI'];
+        $str = $page;
+        if (strpos($str, 'newgallery') !== false)
+        {
+            
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'gallerys'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'editPhoto'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'delGallery'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'delGlry'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        }
+        
+
+    }
+
+    // neste caso estará verificando se a pagina atual pertence ao menu de serviços
+    function getOpenConfigMenu()
+    {
+        $page = $_SERVER['REQUEST_URI'];
+        $str = $page;
+        if (strpos($str, 'config') !== false)
+        {
+            
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'configsuccess'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } elseif (strpos($str, 'about'))
+        {
+
+            return 'nav-item menu-is-opening menu-open';
+
+        } 
+        
+
+    }
 
     // Usuário
 
@@ -223,7 +347,6 @@
         $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
         $dir = 'img/profile/'; //Diretório para uploads 
         $newPath = $dir . $new_name;
-        teste($image['tmp_name']);
 
         move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
         
@@ -533,14 +656,18 @@
          {
          
              try {
-                 $stmt = $conection->prepare('INSERT INTO config(name,mail,phone,address) VALUES(:name, :mail, :phone, address)');
+                 $stmt = $conection->prepare('UPDATE config SET name=:name, mail=:mail, phone=:phone, address=:address ');
                  $stmt->bindValue(':name', $configObj->getName());
                  $stmt->bindValue(':mail', $configObj->getMail());
                  $stmt->bindValue(':phone', $configObj->getPhone());
                  $stmt->bindValue(':address', $configObj->getAddress());
-                 $stmt->execute();
+                 if ($stmt->execute())
+                 {
+
+                    return true;
+                    
+                 }
                  
-                 return true;
      
              } catch(PDOException $e)
              {

@@ -1,16 +1,37 @@
 <?php 
 
 
+
     require ("bmqdb/connection.php");
     require ("functions/functions.php");
-    checkUserLogin();
+    
 
     // requiremento de todas as classes necessárias para o projeto.
     require('class/classes.php');
 
 
     session_start();
-    $Config = getConfig($conn);
+
+    if (isset($_SESSION['userlogin']))
+    {
+
+      if ($_SESSION['userlogin']->getType() != "Admin") 
+      {
+
+          // header("location:login.php?roolback=" . $page);
+          
+      }
+
+    } else 
+    {
+
+      // irá criar uma sessão chamada roolback com o dados da página anterior
+      $_SESSION["roolback"] = $_SERVER['REQUEST_URI'];
+
+      header("location:login.php?roolback");
+      
+    }
+      $Config = getConfig($conn);
 
 
     
@@ -87,6 +108,8 @@
           <?php
 
           // Menu Usuários
+
+          
           require("admin/requires/menu-users.php");
 
           // menu serviços

@@ -4,10 +4,10 @@
     <div class="container">
     <div class="row"  id="page-top">
         <div class="col-md-4 col-sm-4 phone"> 
-            <div><i class="fa fa-phone"></i> Celular/ WhatsApp: (53) 98464-7737</div> 
+            <div><i class="fa fa-phone"></i> Celular/ WhatsApp: <?php echo $Config->getPhone(); ?></div> 
         </div>	
         <div class="col-md-4 col-sm-4 address"> 
-            <div><i class="fa fa-map-marker"></i> Rua Almirante Barroso, 3172 - Sala D <br> Pelotas-RS</div> 
+            <div><i class="fa fa-map-marker"></i> <?php echo $Config->getAddress(); ?></div> 
         </div> 
 
         <?php 

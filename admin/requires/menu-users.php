@@ -1,4 +1,4 @@
-<li class="nav-item">
+<li class="nav-item <?php $class = getOPenUserMenu();  echo $class; ?>">
     <a href="#" class="nav-link">
         <!-- <i class="nav-icon fas fa-edit"></i> -->
         <i class="nav-icon fas fa-thin fa-users"></i>
@@ -24,3 +24,7 @@
         
     </ul>
 </li>
+
+
+
+<!-- nav-item menu-is-opening menu-open -->

@@ -39,6 +39,11 @@
 				
 				$_SESSION['userlogin'] = new User($Login->name,$Login->cellphone,$Login->mail,$Login->password,$Login->image,$Login->user_id,$Login->document,$Login->adress,$Login->wallet,$Login->registered,$Login->conf_mail,$Login->conf_cel,$Login->type);
 				
+				if (isset($_SESSION["roolback"]))
+				{
+					header("location:" . $_SESSION["roolback"]);
+				}
+
 				// verifica se o usuário ja efetuou o login, caso esteja logado, redirecionará para a página inicial.
 				checkUserLogin();
 				

@@ -16,12 +16,31 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 -->
 
 
+## [0.3.6] - 2022-09-06 16:14
+ 
+### Added
+
+-Adicionada a função para modificar dados do site, agora é possivel o usuário modificar nome, telefone, email e endereço fisico da pádina através do banco de dados.
+
+-Agora quando o usuário tenta acessar o painel administrativo sem ter feito o login, será redirecionado para a página de login.php e após efetuar o login irá redireciona-lo para a página index.php,
+onde irá verificar se a sessão "roolback" foi criada, se for verdadeiro, irá verificar se o usuário é um admin, se for verdadeiro irá redirecionalo para a página que tentou acessar antes de efetuar o login, caso o usuário seja um "user" irá redireciona-lo para a página usercp.php. Desta forma o administrador estara retornando para a página em que estava acessando antes da sessão acabar rapidamente.
+
+-Foram criadas novas funções(getOpenUserMenu, getOpenServiceMenu, getOpenGalleryMenu, getOpenConfigMenu) que verificam qual página o usuário esta acessando para que o menu fique aberto conforme a area administrativa o usuário se encontra.
+
+### Removed
+
+### Changed 
+
+-Modificado a função updateConfig($configObj, $conection) para modificar os dados de configuração do site. 
+
+
 ## [0.3.5] - 2022-09-03 00:23
  
 ### Added
 
 -Formulário com input titulo, descrição e imagem do conteúdo "sobre nós", por enquanto apenas coleta os dados do banco e dados e preenche os inputs para que o usuário possa alterar.(modificação de dados ainda não foi implantada.)
 -Nova função getAbout($conection) retorna um objeto About com os seguintes atributos: titulo, descrição e imagem.
+
 
 
 ### Removed

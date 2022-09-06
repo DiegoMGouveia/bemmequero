@@ -6,6 +6,12 @@ if (isset($_GET["config"]))
     if (isset($_POST["configSend"]))
     {
 
+        $Config = new Config($_POST["inputNameSite"],$_POST["inputMailContact"],$_POST["inputPhoneContact"],$_POST["inputAddressContact"]);
+        $result = updateConfig($Config, $conn);
+        if($result === true)
+        {
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='0; URL=admincp.php?configsuccess'>";
+        }
 
 
     }
@@ -83,5 +89,8 @@ if (isset($_GET["config"]))
     </div>
 
     <?php
-} 
+} elseif (isset($_GET["configsuccess"]))
+{
+    require_once("admin/requires/update-sucess-config.php");
+}
 ?>
