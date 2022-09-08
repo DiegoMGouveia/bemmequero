@@ -170,20 +170,27 @@
     {
         $page = $_SERVER['REQUEST_URI'];
         $str = $page;
-        if (strpos($str, 'config') !== false)
+        $openMenu = 'nav-item menu-is-opening menu-open';
+
+        if (strpos($str, 'config'))
         {
             
-            return 'nav-item menu-is-opening menu-open';
+            return $openMenu;
 
         } elseif (strpos($str, 'configsuccess'))
         {
 
-            return 'nav-item menu-is-opening menu-open';
+            return $openMenu;
 
         } elseif (strpos($str, 'about'))
         {
 
-            return 'nav-item menu-is-opening menu-open';
+            return $openMenu;
+
+        } elseif (strpos($str, 'team'))
+        {
+
+            return $openMenu;
 
         } 
         

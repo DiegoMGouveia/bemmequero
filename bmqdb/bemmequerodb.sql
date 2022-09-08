@@ -16,6 +16,55 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `about`
+--
+
+DROP TABLE IF EXISTS `about`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `about` (
+  `title` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(999) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(999) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about`
+--
+
+LOCK TABLES `about` WRITE;
+/*!40000 ALTER TABLE `about` DISABLE KEYS */;
+INSERT INTO `about` VALUES ('Se te faz feliz e te dá bem-estar, você merece mais!','Profissionais que estão a anos no mercado da beleza, transformando a vida de muitas mulheres que procuram dar um Up no visual e na autoestima, a Studio Bem Me Quero aguarda a tua presença, venha ser feliz também!','img/treamer-small.png');
+/*!40000 ALTER TABLE `about` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `config`
+--
+
+DROP TABLE IF EXISTS `config`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `config` (
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `config`
+--
+
+LOCK TABLES `config` WRITE;
+/*!40000 ALTER TABLE `config` DISABLE KEYS */;
+INSERT INTO `config` VALUES ('Studio Bem Me Quero','diego.backend@gmail.com','(53)9916-23404','Rua Almirante Barroso, 3172 - Sala D <br> Pelotas-RS');
+/*!40000 ALTER TABLE `config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `gallery`
 --
 
@@ -29,7 +78,7 @@ CREATE TABLE `gallery` (
   `likes` int DEFAULT '0',
   `date` datetime NOT NULL,
   PRIMARY KEY (`galleryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +106,7 @@ CREATE TABLE `services` (
   `image` varchar(2000) DEFAULT NULL,
   `promotion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`serviceID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,8 +115,37 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
-INSERT INTO `services` VALUES (21,'Teste 3','100','teste destivtivo 3','img/service/2022.07.30-21.03.48.jpg',NULL),(22,'Teste 3','100','teste destivtivo 3','img/service/2022.07.30-21.05.22.jpg',NULL),(23,'Teste 4 ','100','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.','img/service/2022.07.30-23.55.03.png',NULL),(24,'Escova + Chapinha','50','Chapinha e escova por apenas 50 reais.','img/service/2022.08.03-15.37.05.jpg',NULL),(25,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.37.40.jpg',NULL),(26,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.39.28.jpg',NULL),(27,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.39.48.jpg',NULL),(28,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.41.26.jpg',NULL),(30,'Teste Serviço 6','100','ryhurururjurjrjryryryjyrjryjyrj','img/service/2022.08.27-11.15.30.jpg',NULL);
+INSERT INTO `services` VALUES (22,'Teste 3','100','teste destivtivo 3','img/service/2022.07.30-21.05.22.jpg',NULL),(23,'Teste 4 ','100','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.','img/service/2022.07.30-23.55.03.png',NULL),(24,'Escova + Chapinha','50','Chapinha e escova por apenas 50 reais.','img/service/2022.08.03-15.37.05.jpg',NULL),(25,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.37.40.jpg',NULL),(26,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.39.28.jpg',NULL),(27,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.39.48.jpg',NULL),(28,'Escova e Chapinha','50','escova e chapinha','img/service/2022.08.03-15.41.26.jpg',NULL),(30,'Teste Serviço 6','100','ryhurururjurjrjryryryjyrjryjyrj','img/service/2022.08.27-11.15.30.jpg',NULL),(31,'Teste Serviço dsd','3213','fdsfsdfadfffadffffsdf','img/service/2022.09.06-15.55.26.png',NULL);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `team`
+--
+
+DROP TABLE IF EXISTS `team`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `team` (
+  `teamID` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(505) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path` varchar(905) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facebook` varchar(995) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `whatsapp` varchar(945) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `instagram` varchar(995) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ocupation` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`teamID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `team`
+--
+
+LOCK TABLES `team` WRITE;
+/*!40000 ALTER TABLE `team` DISABLE KEYS */;
+INSERT INTO `team` VALUES (1,'Janaína Machado','269974016_120776387133497_2074207593494870926_n.jpg','sodijsadoi','31263812638','duhdiausdh','uygugu'),(2,'Janaína Machado','img/team/2022.09.08-02.25.45.jpg','sodijsadoi','31263812638','duhdiausdh','uygugu'),(3,'Janaína Machado','img/team/2022.09.08-02.32.15.jpg','sodijsadoi','31263812638','duhdiausdh','uygugu');
+/*!40000 ALTER TABLE `team` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -104,7 +182,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Diego Malta Gouveia','999999999-99','99999999999','diego.backend@gmail.com','Rua da Silva','999999','21232f297a57a5a743894a0e4a801fc3','img/profile/2022.08.16-00.28.07.jpg','false','true','false','Admin'),(2,'Diego Gouveia','141245124','212421125125','testando@gmail.com','rua da esquina 1212',NULL,'21232f297a57a5a743894a0e4a801fc3','img/profile/2022.08.16-00.25.47.jpg','false','true','false','user'),(3,'Outro Diego','423344','18937139871','dieguito@live.com','rua da esquinas434',NULL,'21232f297a57a5a743894a0e4a801fc3','img/profile/2022.08.16-00.30.37.jpg','false','false','true','user'),(4,'Joao','232131233235','837183877','julio.backend@gmail.com','rua da esquinas','0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','true','true','false','user'),(6,'Joao almeida','5465415415','89721397','jorjebackend@gmail.com','rua esquina 32','0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','false','false','false','user'),(10,'Diego Gouveia',NULL,'1231231231','wewqewe.backend@gmail.com',NULL,'0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','false','false','false','user'),(12,'ewqeqewq',NULL,'1232131312','qwewekend@gmail.com',NULL,'0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','false','false','false','user'),(30,'Outro Diego',NULL,'21312312','diego.backenwed@gmail.com',NULL,'0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','false','false','false','user'),(31,'Diego Gouveia',NULL,'71613231827368','diego.baasend@gmail.com',NULL,'0','81dc9bdb52d04dc20036dbd8313ed055','img/profile/noimg.jpg','false','false','false','user'),(32,'joaizinho',NULL,'6545646','asdaddiego.backend@gmail.com',NULL,'0','202cb962ac59075b964b07152d234b70','img/profile/noimg.jpg','false','false','false','user'),(52,'Diego Gouveia',NULL,'123213123','diegoqwqwq.backend@gmail.com',NULL,'0','202cb962ac59075b964b07152d234b70','img/profile/noimg.jpg','false','false','false','user'),(54,'Diego Gouveia',NULL,'189371239871','diegobackend@gmail.com',NULL,'0','202cb962ac59075b964b07152d234b70','img/profile/noimg.jpg','false','false','false','user');
+INSERT INTO `users` VALUES (1,'Diego Malta Gouveia','999999999-99','99999999999','diego.backend@gmail.com','Rua da Silva','999999','21232f297a57a5a743894a0e4a801fc3','img/profile/2022.08.16-00.28.07.jpg','false','on','false','Admin'),(2,'Diego Gouveia','141245124','212421125125','testando@gmail.com','rua da esquina 1212',NULL,'21232f297a57a5a743894a0e4a801fc3','img/profile/2022.08.16-00.25.47.jpg','false','true','false','user'),(3,'Outro Diego','423344','18937139871','dieguito@live.com','rua da esquinas434',NULL,'21232f297a57a5a743894a0e4a801fc3','img/profile/2022.08.16-00.30.37.jpg','false','false','true','user'),(4,'Joao','232131233235','837183877','julio.backend@gmail.com','rua da esquinas','0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','true','true','false','user'),(6,'Joao almeida','5465415415','89721397','123@gmail.com','rua esquina 32','0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','false','false','false','user'),(10,'Diego Gouveia',NULL,'1231231231','wewqewe.backend@gmail.com',NULL,'0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','false','false','false','user'),(30,'Outro Diego',NULL,'21312312','diego.backenwed@gmail.com',NULL,'0','21232f297a57a5a743894a0e4a801fc3','img/profile/noimg.jpg','false','false','false','user'),(31,'Diego Gouveia',NULL,'71613231827368','diego.baasend@gmail.com',NULL,'0','81dc9bdb52d04dc20036dbd8313ed055','img/profile/noimg.jpg','false','false','false','user'),(52,'Diego Gouveia',NULL,'123213123','diegoqwqwq.backend@gmail.com',NULL,'0','202cb962ac59075b964b07152d234b70','img/profile/noimg.jpg','false','false','false','user');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -117,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-29 22:37:41
+-- Dump completed on 2022-09-08  9:34:36

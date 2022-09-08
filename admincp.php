@@ -18,19 +18,28 @@
       if ($_SESSION['userlogin']->getType() != "Admin") 
       {
 
-          // header("location:login.php?roolback=" . $page);
+          header("location:index.php");
           
-      }
+      } 
+
+      // // verifica se o usuário é "user", caso seja será redirecionado para o index.php
+      // switch ($_SESSION['userlogin']->getType()) 
+      // {
+      //   case "user":
+      //       header("location:index.php");
+      //       break;
+      // }
 
     } else 
     {
 
-      // irá criar uma sessão chamada roolback com o dados da página anterior
+      // se o usuário não estiver feito o login, irá criar uma sessão chamada "roolback" com o dados da página anterior
       $_SESSION["roolback"] = $_SERVER['REQUEST_URI'];
 
       header("location:login.php?roolback");
       
     }
+      // seleciona as configurações do banco de dados.
       $Config = getConfig($conn);
 
 

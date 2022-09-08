@@ -16,6 +16,24 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 -->
 
 
+## [0.3.8] - 2022-09-08 09:36
+ 
+### Added
+
+-Agora vou referenciar a página modificada usando tags [index.php], [admincp.php], [usercp.php] afim de apresentar de qual area é a modificação realizada irá influenciar.
+
+### Removed
+
+### Changed 
+
+-[admincp.php] Modificado o codigo que verifica se o usuário está logado, agora também irá verificar se o usuário logado tem permissão de "user", 
+    caso seja "user" ele irá redirecionar para o index.php
+
+-[admincp.php] Agora o submenu configurações permanece aberto ao navegar em "novo profissional".
+
+-[SQL] backup do banco de dados realizado.
+
+
 ## [0.3.7] - 2022-09-08 02:33
  
 ### Added
