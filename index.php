@@ -9,15 +9,26 @@
     
     if (isset($_SESSION["roolback"]))
     {
-        $roolback = $_SESSION["roolback"];
-        unset($_SESSION["roolback"]);
-        if ($_SESSION["userlogin"]->getType() === "Admin")
+        if (isset($_SESSION["userlogin"]))
         {
-            header("location:" . $roolback);
-        } elseif($_SESSION["userlogin"]->getType() === "user")
+
+            $roolback = $_SESSION["roolback"];
+            unset($_SESSION["roolback"]);
+            if ($_SESSION["userlogin"]->getType() === "Admin")
+            {
+                header("location:" . $roolback);
+            } elseif($_SESSION["userlogin"]->getType() === "user")
+            {
+                header("location:usercp.php");
+            }
+
+        } else 
         {
-            header("location:usercp.php");
+            
+            unset($_SESSION["roolback"]);
+
         }
+        
     }
 
     $Config = getConfig($conn);

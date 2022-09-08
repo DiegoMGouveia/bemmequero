@@ -21,15 +21,15 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="?team" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Especialidade</p>
+            <p>Profissionais</p>
         </a>
         </li>
         <li class="nav-item">
         <a href="#" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Profissionais</p>
+            <p>Especialidade</p>
         </a>
         </li>
 

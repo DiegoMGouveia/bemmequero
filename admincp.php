@@ -172,6 +172,9 @@
 
           // Sobre Nós
           require("admin/requires/manage-about.php");
+
+          // Profissionais
+          require("admin/requires/new-team.php");
           
         
         // teste($deleted);

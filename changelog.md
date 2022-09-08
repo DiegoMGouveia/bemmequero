@@ -16,6 +16,22 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 -->
 
 
+## [0.3.7] - 2022-09-08 02:33
+ 
+### Added
+
+-nova classe Team, feita para trabalhar com dados dos profissionais cadastrados no banco de dados e apresenta-los no index.php
+-Criado formulario para adicionar novo profissional (team)
+-Back para inserção no banco de dados testado.
+-Nova função setTeam e uploadImgTeam, usados para manipular dados e inserir um novo profissional ao Team.
+
+### Removed
+
+### Changed 
+
+-consertado bug que se a pessoa ao ser redirecionada para a tela de login após tentar acessar o painel administrativo, caso ela não efetuasse o login e acessassem o index.php, apresentava janela de erro.
+
+
 ## [0.3.6] - 2022-09-06 16:14
  
 ### Added

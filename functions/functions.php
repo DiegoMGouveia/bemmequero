@@ -740,8 +740,51 @@
 
     }
 
+    // Profissionais
+    // irá inserir os dados do novo profissional na tabela team no banco de dados.
+    function setTeam($TeamObj, $conection)
+    {
+
+        try
+        {
+
+            
+            $stmt = $conection->prepare('INSERT INTO team(name, path, facebook, whatsapp, instagram, ocupation) VALUES(:nam, :pat, :face, :whats, :insta, :ocup)');
+            $stmt->bindValue(':nam', $TeamObj->getName());
+
+            // upload da imagem e renomeando
+            $TeamObj->setPath(uploadImgTeam($TeamObj->getPath()));
+
+            $stmt->bindValue(':pat', $TeamObj->getPath());
+            $stmt->bindValue(':face', $TeamObj->getFacebook());
+            $stmt->bindValue(':whats', $TeamObj->getWhats());
+            $stmt->bindValue(':insta', $TeamObj->getInstagram());
+            $stmt->bindValue(':ocup', $TeamObj->getOcupation());
+            $stmt->execute();
+            
+            return true;
+        
+        } catch(PDOException $e) {
+            echo 'ERROR: ' . $e->getMessage();
+        }
+
+    }
+
+    function uploadImgTeam($image)
+    {
+        $ext = strtolower(substr($image['name'],-4)); //Pegando extensão do arquivo
+
+        $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+        $dir = 'img/team/'; //Diretório para uploads 
+        $newPath = $dir . $new_name;
+
+        move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
+        
+        return $newPath;
 
 
+
+    }
 
 
 
