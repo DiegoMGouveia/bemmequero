@@ -45,33 +45,33 @@
         </div>
         <?php
 
-      if (isset($_POST["gallerySend"]))
-      {
+        if (isset($_POST["gallerySend"]))
+        {
 
-        if(!empty($_FILES)){ // Se o array $_FILES não estiver vazio
+            if(!empty($_FILES)){ // Se o array $_FILES não estiver vazio
 
-            // Associamos a classe à variável $upload
-            $upload = new UploadImagem();
-            // Determinamos nossa largura máxima permitida para a imagem
-            $upload->width = 500;
-            // Determinamos nossa altura máxima permitida para a imagem
-            $upload->height = 500;
-            
-            // Exibimos a mensagem com sucesso ou erro retornada pela função salvar.
-            //Se for sucesso, a mensagem também é um link para a imagem enviada.
-            $resultUpload = $upload->salvar("img/portfolio/", $_FILES['inputImageGallery']);
-            if ( is_array($resultUpload))
-            {
-                $NewGallery = new Gallery($_POST["inputTitleGallery"], $resultUpload[1], date("Y.m.d-H.i.s"));
-                $insertResult = insertNewGallery($NewGallery, $conn);
-                echo "Foto publicada com sucesso!";
+                // Associamos a classe à variável $upload
+                $upload = new UploadImagem();
+                // Determinamos nossa largura máxima permitida para a imagem
+                $upload->width = 500;
+                // Determinamos nossa altura máxima permitida para a imagem
+                $upload->height = 500;
+                
+                // Exibimos a mensagem com sucesso ou erro retornada pela função salvar.
+                //Se for sucesso, a mensagem também é um link para a imagem enviada.
+                $resultUpload = $upload->salvar("img/portfolio/", $_FILES['inputImageGallery']);
+                if ( is_array($resultUpload))
+                {
+                    $NewGallery = new Gallery($_POST["inputTitleGallery"], $resultUpload[1], date("Y.m.d-H.i.s"));
+                    $insertResult = insertNewGallery($NewGallery, $conn);
+                    echo "Foto publicada com sucesso!";
 
 
+                }
+                
             }
-            // var_dump($resultUpload);
-        }
 
-      }
+        }
 
 
     // lista de imagens
@@ -81,11 +81,11 @@
         // irá listar todos as imagens cadastrado no banco de dados.
         require("admin/requires/list-images.php");
 
-    } elseif (isset($_GET["selgallery"]))
+    } elseif (isset($_GET["selPhoto"]))
     {
 
         // irá mostrar informações de um serviço cadastrado no banco de dados.
-        require("admin/requires/service.php");
+        require("admin/requires/selPhoto.php");
 
     } elseif (isset($_GET["delGallery"]))
     {

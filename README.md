@@ -14,15 +14,15 @@ página onde o usuário com poder de administrador, poderá acrescentar, modific
 
 Objetivos:
 
-[   ] Administrar usuários
-[   ] Administrar serviços
-[   ] Administrar Galeria de fotos
-[   ] Administrar Fotos da página principal.
-[   ] Administrar dados de contato da página principal.
-[   ] Administrar logs.
-[   ] Relacionamento usuário e profissionais.
-[   ] Relacionamento com redes sociais.
-[   ] Relacionamento com chat e WhatsApp.
-[   ] Administrar vendas.
-[   ] Administrar produtos.
-[   ] Calendário Clientes aniversário.
+[OK] Administrar usuários [password ainda não]
+[OK] Administrar serviços
+[OK] Administrar Galeria de fotos
+[OK] Administrar Fotos da página principal.
+[OK] Administrar dados de contato da página principal.
+[  ] Administrar logs.
+[  ] Relacionamento usuário e profissionais.
+[  ] Relacionamento com redes sociais.
+[  ] Relacionamento com chat e WhatsApp.
+[  ] Administrar vendas.
+[  ] Administrar produtos.
+[  ] Calendário Clientes aniversário.

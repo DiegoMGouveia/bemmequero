@@ -15,6 +15,18 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 -->
 
+## [0.3.10] - 2022-09-14 00:15
+ 
+### Added
+
+- Agora é possivel alterar o titulo da imagem da galeria de fotos.
+
+### Removed
+
+### Changed 
+
+- Agora ao deletar um serviço, a imagem relacionada a ele também será deletada do servidor.
+
 
 ## [0.3.9] - 2022-09-13 22:58
  

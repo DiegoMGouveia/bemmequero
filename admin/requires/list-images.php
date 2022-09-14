@@ -46,7 +46,7 @@
                           echo "<td class='col-1 text-center'>{$row['title']}</td>";
                           echo "<td  class='col-1 text-center'>{$row['likes']}</td>";
                           echo "<td class='col-1 text-center'>{$row['date']}</td>";
-                          echo "<td class='col-1 text-center'><a href='admincp.php?editPhoto={$row['galleryID']}'><button type='submit' class='bg-success'>Ver</button></a><a href='admincp.php?delGallery={$row['galleryID']}'><button type='submit' class='bg-danger'>Deletar</button></a></td>";
+                          echo "<td class='col-1 text-center'><a href='admincp.php?selPhoto={$row['galleryID']}'><button type='submit' class='bg-success'>Ver</button></a><a href='admincp.php?delGallery={$row['galleryID']}'><button type='submit' class='bg-danger'>Deletar</button></a></td>";
                           echo "</tr>";
                           echo "</div>";
                           

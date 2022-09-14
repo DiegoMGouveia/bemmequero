@@ -603,9 +603,7 @@
             $result = $stmt->fetchAll(PDO::FETCH_OBJ);
             if (count($result) === 1) {
 
-
                 $Service = new Service($result[0]->serviceID,$result[0]->name,$result[0]->price,$result[0]->description,$result[0]->image);
-                
 
                 return $Service;
 
@@ -615,17 +613,20 @@
         }
     }
 
+
     function delService($conection)
     {
 
         if($_SESSION["userlogin"]->getType() == "Admin")
         {
-            $serviceId = $_GET["deleteServ"];
+            
+            $Service = getService($conection, $_GET["deleteServ"]);
+            unlink($Service->getImage());
 
             $query = "DELETE FROM services WHERE serviceID = :search";
 
             $stmt = $conection->prepare($query);
-            $stmt->bindValue(':search', $serviceId);
+            $stmt->bindValue(':search', $Service->getServiceID());
 
             $stmt->execute();
 
@@ -818,8 +819,53 @@
         $stmt = $conection->prepare($query);
         $stmt->bindValue(':search', $galleryId);
         $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result[0];
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        if (count($result) === 1) {
+
+            $Photo = new Gallery($result[0]->galleryID,$result[0]->title,$result[0]->path,$result[0]->likes,$result[0]->date);
+
+            return $Photo;
+
+        } else {
+            return false;
+        }
+
+    }
+
+    // Função usada para atualizar as informações da imagem da galeria do site no banco de dados.
+    function updateGallery($conection, $galleryObj)
+    {
+
+        if($_SESSION["userlogin"]->getType() == "Admin")
+        {
+        
+            try {
+
+                $stmt = $conection->prepare('UPDATE gallery SET title=:title WHERE galleryID = :search');
+                $stmt->bindValue(':title', $galleryObj->getTitle());
+                $stmt->bindValue(':search', $galleryObj->getId());
+                
+                if ($stmt->execute())
+                {
+
+                   return $galleryObj;
+                   
+                }
+                
+    
+            } catch(PDOException $e)
+            {
+            
+                echo 'ERROR: ' . $e->getMessage();
+                return false;
+    
+            }
+
+        } else{
+            echo "Somente o administrador pode fazer isso!";
+        }
+
+
 
     }
 

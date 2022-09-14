@@ -7,7 +7,7 @@
         public $date;
 
 
-        public function __construct($title, $path, $date, $id = null, $likes = null){
+        public function __construct($id = null, $title=null, $path=null, $likes = null, $date=null){
                 
                 $this->id = $id;
                 $this->title = $title;
@@ -53,7 +53,7 @@
          */ 
         public function setTitle($title)
         {
-                $this->name = $title;
+                $this->title = $title;
 
                 return $this;
         }
