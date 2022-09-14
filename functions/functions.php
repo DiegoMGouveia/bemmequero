@@ -197,6 +197,97 @@
 
     }
 
+    function getPageActive()
+    {
+        if(isset($_GET["config"]))
+        {
+            
+            return "config";
+
+        } elseif (isset($_GET["about"]))
+        {
+
+            return "about";
+
+        } elseif (isset($_GET["team"]))
+        {
+
+            return "team";
+
+        } elseif (isset($_GET["configsuccess"]))
+        {
+
+            return "configsuccess";
+
+        } elseif (isset($_GET["listusers"]))
+        {
+
+            return "listusers";
+
+        } elseif (isset($_GET["seluser"]))
+        {
+
+            return "seluser";
+
+        } elseif (isset($_GET["deleteUsr"]))
+        {
+
+            return "deleteUsr";
+
+        } elseif (isset($_GET["newservice"]))
+        {
+
+            return "newservice";
+
+        } elseif (isset($_GET["services"]))
+        {
+
+            return "services";
+
+        } elseif (isset($_GET["service"]))
+        {
+
+            return "service";
+
+        } elseif (isset($_GET["delService"]))
+        {
+
+            return "delService";
+
+        } elseif (isset($_GET["deleteServ"]))
+        {
+
+            return "deleteServ";
+
+        } elseif (isset($_GET["newgallery"]))
+        {
+
+            return "newgallery";
+
+        } elseif (isset($_GET["gallerys"]))
+        {
+
+            return "gallerys";
+
+        } elseif (isset($_GET["editPhoto"]))
+        {
+
+            return "editPhoto";
+
+        } elseif (isset($_GET["delGallery"]))
+        {
+
+            return "delGallery";
+
+        } elseif (isset($_GET["delGlry"]))
+        {
+
+            return "delGlry";
+
+        }
+    
+    }
+
     // Usuário
 
 
@@ -509,13 +600,19 @@
             $stmt = $conection->prepare($query);
             $stmt->bindValue(':search', $serviceId);
             $stmt->execute();
-            $result = $stmt->fetchAll();
-            return $result[0];
-        } else
-        {
-            echo "Somente o administrador pode fazer isso!";
-        }
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            if (count($result) === 1) {
 
+
+                $Service = new Service($result[0]->serviceID,$result[0]->name,$result[0]->price,$result[0]->description,$result[0]->image);
+                
+
+                return $Service;
+
+            } else {
+                return false;
+            }
+        }
     }
 
     function delService($conection)
@@ -539,8 +636,82 @@
             echo "Somente o administrador pode fazer isso!";
         }
 
+    }
+
+
+    function updateImgService($image)
+    {
+        $ext = strtolower(substr($image['name'],-4)); //Pegando extensão do arquivo
+
+        $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+        $dir = 'img/service/'; //Diretório para uploads 
+        $newPath = $dir . $new_name;
+
+        move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
         
-        
+        return $newPath;
+
+
+
+    }
+
+
+    // Função updateService irá verificar os inputs [admin/requires/service.php] e irá modificar o objeto Serviço e atualizar os dados no banco de dados 
+    function updateService($conection, $ServiceObj)
+    {
+        // se o usuário inseriu um novo nome
+        if(isset($_POST["inputNameService"]))
+        {
+            $ServiceObj->setName($_POST["inputNameService"]);
+        }
+
+        // se o usuário inseriu um novo valor
+        if(isset($_POST["inputValorService"]))
+        {
+            $ServiceObj->setPrice($_POST["inputValorService"]);
+        }
+
+        // se o usuário inseriu uma nova descrição
+        if(isset($_POST["inputDescriptionService"]))
+        {
+            $ServiceObj->setDescription($_POST["inputDescriptionService"]);
+        }
+
+        // se o usuário inseriu uma nova imagem
+        if(!empty($_FILES["inputImageService"]))
+        {
+            // faz o upload da nova imagem e retorna o path da nova imagem
+            $newImage = updateImgService($_FILES["inputImageService"]);
+
+            // deletando imagem antiga
+            unlink($ServiceObj->getImage());
+            
+            // setando novo path no atributo image
+            $ServiceObj->setImage($newImage);
+
+        }
+
+
+        // se o usuário for admin, irá atualizar os dados no banco de dados
+        if($_SESSION["userlogin"]->getType() == "Admin")
+        {
+            
+            $sql = "UPDATE services SET name = :name, price = :price, description = :description, image = :image WHERE serviceID = :id ";
+            $stmt = $conection->prepare($sql);
+
+            $stmt->bindValue(':id', $ServiceObj->getServiceID());
+            $stmt->bindValue(':name', $ServiceObj->getName());
+            $stmt->bindValue(':price', $ServiceObj->getPrice());
+            $stmt->bindValue(':description', $ServiceObj->getDescription());
+            $stmt->bindValue(':image', $ServiceObj->getImage());
+            $stmt->execute();
+
+            return $ServiceObj;
+
+        }
+
+        echo "Somente o administrador pode efetuar esta operação.";
+
     }
 
 

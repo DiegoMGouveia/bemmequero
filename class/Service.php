@@ -9,7 +9,7 @@
         private $promotion;
         private $image;
 
-        public function __construct($name, $price, $description, $image = null, $promotion = null, $serviceID = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
+        public function __construct($serviceID = null, $name=null, $price=null, $description=null, $image = null, $promotion = null, $adress = null, $wallet = null, $registered = null, $conf_mail = null, $conf_cel = null, $type = "User"){
                 
                 $this->serviceID = $serviceID;
                 $this->name = $name;
@@ -143,7 +143,7 @@
          */ 
         public function setImage($image)
         {
-                $this->imagem = $image;
+                $this->image = $image;
 
                 return $this;
         }

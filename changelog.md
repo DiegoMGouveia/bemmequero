@@ -16,6 +16,25 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 -->
 
 
+## [0.3.9] - 2022-09-13 22:58
+ 
+### Added
+
+- Nova classe UploadImagem.php usada para manipular o arquivo de imagem enviado pelo usuário, contem funções para tratar alguns possiveis erros de tipo de arquivo e alterar nome.
+
+- [admincp.php] Nova função  para detectar a página atual para animar o menú conforme a area em que o usuário se encontra.
+
+- [admincp.php] Agora é possivel alterar todos os dados dos serviços armazenados no banco de dados através do menu administrativo.
+
+### Removed
+
+### Changed 
+
+- modificada uma falha na classe Service.php, na qual não estava setando um novo dado ao atributo image.
+
+
+
+
 ## [0.3.8] - 2022-09-08 09:36
  
 ### Added
@@ -26,7 +45,7 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
 
 ### Changed 
 
--[admincp.php] Modificado o codigo que verifica se o usuário está logado, agora também irá verificar se o usuário logado tem permissão de "user", 
+- [admincp.php] Modificado o codigo que verifica se o usuário está logado, agora também irá verificar se o usuário logado tem permissão de "user", 
     caso seja "user" ele irá redirecionar para o index.php
 
 -[admincp.php] Agora o submenu configurações permanece aberto ao navegar em "novo profissional".
@@ -38,42 +57,42 @@ Todas mudanças realizadas neste projeto serão documentadas neste arquivo a par
  
 ### Added
 
--nova classe Team, feita para trabalhar com dados dos profissionais cadastrados no banco de dados e apresenta-los no index.php
--Criado formulario para adicionar novo profissional (team)
--Back para inserção no banco de dados testado.
--Nova função setTeam e uploadImgTeam, usados para manipular dados e inserir um novo profissional ao Team.
+- nova classe Team, feita para trabalhar com dados dos profissionais cadastrados no banco de dados e apresenta-los no index.php
+- Criado formulario para adicionar novo profissional (team)
+- Back para inserção no banco de dados testado.
+- Nova função setTeam e uploadImgTeam, usados para manipular dados e inserir um novo profissional ao Team.
 
 ### Removed
 
 ### Changed 
 
--consertado bug que se a pessoa ao ser redirecionada para a tela de login após tentar acessar o painel administrativo, caso ela não efetuasse o login e acessassem o index.php, apresentava janela de erro.
+- consertado bug que se a pessoa ao ser redirecionada para a tela de login após tentar acessar o painel administrativo, caso ela não efetuasse o login e acessassem o index.php, apresentava janela de erro.
 
 
 ## [0.3.6] - 2022-09-06 16:14
  
 ### Added
 
--Adicionada a função para modificar dados do site, agora é possivel o usuário modificar nome, telefone, email e endereço fisico da pádina através do banco de dados.
+- Adicionada a função para modificar dados do site, agora é possivel o usuário modificar nome, telefone, email e endereço fisico da pádina através do banco de dados.
 
--Agora quando o usuário tenta acessar o painel administrativo sem ter feito o login, será redirecionado para a página de login.php e após efetuar o login irá redireciona-lo para a página index.php,
+- Agora quando o usuário tenta acessar o painel administrativo sem ter feito o login, será redirecionado para a página de login.php e após efetuar o login irá redireciona-lo para a página index.php,
 onde irá verificar se a sessão "roolback" foi criada, se for verdadeiro, irá verificar se o usuário é um admin, se for verdadeiro irá redirecionalo para a página que tentou acessar antes de efetuar o login, caso o usuário seja um "user" irá redireciona-lo para a página usercp.php. Desta forma o administrador estara retornando para a página em que estava acessando antes da sessão acabar rapidamente.
 
--Foram criadas novas funções(getOpenUserMenu, getOpenServiceMenu, getOpenGalleryMenu, getOpenConfigMenu) que verificam qual página o usuário esta acessando para que o menu fique aberto conforme a area administrativa o usuário se encontra.
+- Foram criadas novas funções(getOpenUserMenu, getOpenServiceMenu, getOpenGalleryMenu, getOpenConfigMenu) que verificam qual página o usuário esta acessando para que o menu fique aberto conforme a area administrativa o usuário se encontra.
 
 ### Removed
 
 ### Changed 
 
--Modificado a função updateConfig($configObj, $conection) para modificar os dados de configuração do site. 
+- Modificado a função updateConfig($configObj, $conection) para modificar os dados de configuração do site. 
 
 
 ## [0.3.5] - 2022-09-03 00:23
  
 ### Added
 
--Formulário com input titulo, descrição e imagem do conteúdo "sobre nós", por enquanto apenas coleta os dados do banco e dados e preenche os inputs para que o usuário possa alterar.(modificação de dados ainda não foi implantada.)
--Nova função getAbout($conection) retorna um objeto About com os seguintes atributos: titulo, descrição e imagem.
+- Formulário com input titulo, descrição e imagem do conteúdo "sobre nós", por enquanto apenas coleta os dados do banco e dados e preenche os inputs para que o usuário possa alterar.(modificação de dados ainda não foi implantada.)
+- Nova função getAbout($conection) retorna um objeto About com os seguintes atributos: titulo, descrição e imagem.
 
 
 
@@ -81,18 +100,17 @@ onde irá verificar se a sessão "roolback" foi criada, se for verdadeiro, irá 
 
 ### Changed 
 
--
 
 
 ## [0.3.4] - 2022-08-31 21:08
  
 ### Added
 
--Front formulário de configuração do site na area administrativa, onde receberá e informará dados e contato do site.
+- Front formulário de configuração do site na area administrativa, onde receberá e informará dados e contato do site.
 
--Foi adicionado ao banco de dados uma nova tabela de configurações (config) onde guardara os seguintes dados: Nome, E-mail, Telefone e Endereço.
+- Foi adicionado ao banco de dados uma nova tabela de configurações (config) onde guardara os seguintes dados: Nome, E-mail, Telefone e Endereço.
 
--Nova função "getConfig($conection)" que retornará o objeto com os dados do banco de dados com informações de configurações do site. Usada em toddas páginas onde o nome do site é apresentado, tornando a edição do nome do site mais dinâmica de edição.
+- Nova função "getConfig($conection)" que retornará o objeto com os dados do banco de dados com informações de configurações do site. Usada em toddas páginas onde o nome do site é apresentado, tornando a edição do nome do site mais dinâmica de edição.
 
 
 ### Removed
@@ -121,25 +139,25 @@ onde irá verificar se a sessão "roolback" foi criada, se for verdadeiro, irá 
 
 ### Changed 
 
--As imagens da galeria agora são as imagens cadastradas no banco de dados.
--A função "delGallery" testada, está funcionando, foi ajustada para deletar a imagem vinculada.
+- As imagens da galeria agora são as imagens cadastradas no banco de dados.
+- A função "delGallery" testada, está funcionando, foi ajustada para deletar a imagem vinculada.
 
 
 ## [0.3.1] - 2022-08-28 00:02
  
 ### Added
 
--Painel Administrativo -> Galeria -> nova Imagem: agora tem um formulário que ao preencher e selecionar uma imagem, envia para a pasta "img/portfolio" e armazena os dados no banco de dados.
--Nova função "insertNewGallery" usada para inserir a nova imagem da galeria para o banco de dados.
--Nova função "delGallery" usada para deletar a imagem do banco de dados(ainda não testado).
+- Painel Administrativo -> Galeria -> nova Imagem: agora tem um formulário que ao preencher e selecionar uma imagem, envia para a pasta "img/portfolio" e armazena os dados no banco de dados.
+- Nova função "insertNewGallery" usada para inserir a nova imagem da galeria para o banco de dados.
+- Nova função "delGallery" usada para deletar a imagem do banco de dados(ainda não testado).
 
 
 ### Removed
 
 ### Changed 
 
--Codigo organizado no arquivo admincp.php para melhor leitura e facil entendimento.
--Alterado alguns nomes de atributos da classe Gallery.php para se adequar ao banco de dados e de acordo com o front do index.php
+- Codigo organizado no arquivo admincp.php para melhor leitura e facil entendimento.
+- Alterado alguns nomes de atributos da classe Gallery.php para se adequar ao banco de dados e de acordo com o front do index.php
 
 
 ## [0.3.0] - 2022-08-25 22:02

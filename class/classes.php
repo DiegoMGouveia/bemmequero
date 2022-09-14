@@ -18,7 +18,9 @@
     // About.php = classe usada para manipulação de dados da area Sobre Nós no site.
     require("class/About.php");
 
-    // Team,php = classe usada para a manipulação de dados na area Team no site.
+    // Team.php = classe usada para a manipulação de dados na area Team no site.
     require("class/Team.php");
     
+    // UploadImagem.php = classe utilizada para tratar a imagem na qual o usuário enviará para o servidor.
+    require("class/UploadImagem.php");
     

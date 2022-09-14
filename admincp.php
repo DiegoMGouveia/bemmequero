@@ -22,13 +22,6 @@
           
       } 
 
-      // // verifica se o usuário é "user", caso seja será redirecionado para o index.php
-      // switch ($_SESSION['userlogin']->getType()) 
-      // {
-      //   case "user":
-      //       header("location:index.php");
-      //       break;
-      // }
 
     } else 
     {
@@ -41,6 +34,7 @@
     }
       // seleciona as configurações do banco de dados.
       $Config = getConfig($conn);
+      $pageActive = getPageActive();
 
 
     
@@ -64,11 +58,6 @@
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
-
-  <!-- Preloader -->
-  <!-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="img/logo4.png" alt="<?php echo $Config->getName();?>" height="80" width="80">
-  </div> -->
 
   <?php
     // Navbar / Menu topo + notificações

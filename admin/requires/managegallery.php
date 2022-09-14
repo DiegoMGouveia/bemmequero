@@ -11,60 +11,65 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <form action="admincp.php?newgallery" method="POST" enctype="multipart/form-data">
-                <div class="row">
-                <div class="col-sm-6">
-                    <!-- nome input -->
-                    <div class="form-group">
-                    <label>Titulo da imagem</label>
-                    <input type="text" class="form-control" name="inputTitleGallery" placeholder="Digite o titulo da imagem ..."  required>
-                    </div>
-                </div>
-                
-                </div>
-
-                <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <!-- <label for="customFile">Custom File</label> -->
-
-                        <div class="custom-file">
-                            <input type="file" accept="image/*" class="custom-file-input" name="inputImageGallery" id="imageGallery">
-                            <label class="custom-file-label" for="inputImageGallery">Escolha uma imagem...</label>
+                <form action="admincp.php?newgallery" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- nome input -->
+                            <div class="form-group">
+                                <label>Titulo da imagem</label>
+                                <input type="text" class="form-control" name="inputTitleGallery" placeholder="Digite o titulo da imagem ..."  required>
+                            </div>
                         </div>
+                    
                     </div>
-                    <button type="submit" name="gallerySend" class="btn btn-primary">Postar Imagem</button>
 
-                </div>
-                
-                </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <!-- <label for="customFile">Custom File</label> -->
 
-            </form>
+                                <div class="custom-file">
+                                    <input type="file" accept="image/*" class="custom-file-input" name="inputImageGallery" id="imageGallery">
+                                    <label class="custom-file-label" for="inputImageGallery">Escolha uma imagem...</label>
+                                </div>
+                            </div>
+                            <button type="submit" name="gallerySend" class="btn btn-primary">Postar Imagem</button>
+
+                        </div>
+                    
+                    </div>
+
+                </form>
             </div>
             <!-- /.card-body -->
         </div>
         <?php
 
-
-    
-
       if (isset($_POST["gallerySend"]))
       {
 
-        // back-end nova imagem
-        $title = $_POST["inputTitleGallery"];
-        $image = $_FILES["inputImageGallery"];
-        // Manipulando arquivo de imagem
-        $ext = strtolower(substr($image['name'],-4)); //Pegando extensão do arquivo
-        $new_name = $title . date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
-        $date = date("Y.m.d-H.i.s");
-        $dir = 'img/portfolio/'; //Diretório para uploads 
-        $newPath = $dir . $new_name;
-        move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
+        if(!empty($_FILES)){ // Se o array $_FILES não estiver vazio
 
-        $NewGallery = new Gallery($title, $newPath, $date);
-        $insertResult = insertNewGallery($NewGallery, $conn);
-        echo "Foto publicada com sucesso!";
+            // Associamos a classe à variável $upload
+            $upload = new UploadImagem();
+            // Determinamos nossa largura máxima permitida para a imagem
+            $upload->width = 500;
+            // Determinamos nossa altura máxima permitida para a imagem
+            $upload->height = 500;
+            
+            // Exibimos a mensagem com sucesso ou erro retornada pela função salvar.
+            //Se for sucesso, a mensagem também é um link para a imagem enviada.
+            $resultUpload = $upload->salvar("img/portfolio/", $_FILES['inputImageGallery']);
+            if ( is_array($resultUpload))
+            {
+                $NewGallery = new Gallery($_POST["inputTitleGallery"], $resultUpload[1], date("Y.m.d-H.i.s"));
+                $insertResult = insertNewGallery($NewGallery, $conn);
+                echo "Foto publicada com sucesso!";
+
+
+            }
+            // var_dump($resultUpload);
+        }
 
       }
 

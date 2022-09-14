@@ -1,12 +1,15 @@
 <?php
 
-    if(isset($_GET["service"])){
-        $selectedService = $_GET["service"];
+    // retorna dados do serviço com base no valor do GET
+    $returnService = getService($conn,$_GET["service"]);
+    
+    if(isset($_POST["serviceUpdateSend"]))
+    {
 
-        $returnService = getService($conn,$selectedService);
-
+        $returnService = updateService($conn, $returnService);
+        
+        
     }
-
 
 ?>
 <div class="card card-warning">
@@ -15,23 +18,23 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-    <form action="admincp.php?newservice" method="POST" enctype="multipart/form-data">
+    <form action="admincp.php?service=<?php echo $_GET["service"];?>" method="POST" enctype="multipart/form-data">
         <div class="row">
-        <div class="col-sm-6">
-            <!-- nome input -->
-            <div class="form-group">
-            <label>Nome do serviço</label>
-            <input type="text" class="form-control" name="inputNameService" value="<?php echo $returnService['name'];?>"  required>
+            <div class="col-sm-6">
+                <!-- nome input -->
+                <div class="form-group">
+                    <label>Nome do serviço</label>
+                    <input type="text" class="form-control" name="inputNameService" value="<?php echo $returnService->getName();?>"  required>
+                </div>
             </div>
-        </div>
 
-        <div class="col-sm-3">
-            <!-- Preço input -->
-            <div class="form-group">
-            <label>Valor do serviço</label>
-            <input type="text" name="inputValorService" class="form-control" value="<?php echo $returnService['price'];?>" required>
+            <div class="col-sm-3">
+                <!-- Preço input -->
+                <div class="form-group">
+                    <label>Valor do serviço</label>
+                    <input type="text" name="inputValorService" class="form-control" value="<?php echo $returnService->getPrice();?>" required>
+                </div>
             </div>
-        </div>
         
         </div>
         <div class="row">
@@ -39,7 +42,7 @@
             <!-- textarea -->
             <div class="form-group">
             <label>Descrição:</label>
-            <textarea class="form-control" name="inputDescriptionService" rows="3" required><?php echo $returnService['description'];?></textarea>
+            <textarea class="form-control" name="inputDescriptionService" rows="3" required><?php echo $returnService->getDescription();?></textarea>
             </div>
             <div class="form-group">
                 <!-- <label for="customFile">Custom File</label> -->
@@ -49,11 +52,11 @@
                     <label class="custom-file-label" for="inputImageService">Escolha uma imagem...</label>
                 </div>
             </div>
-            <button type="submit" name="serviceSend" class="btn btn-primary">Criar Serviço</button>
+            <button type="submit" name="serviceUpdateSend" class="btn btn-primary">Atualizar Serviço</button>
 
             <div class="container">
                 Imagem do Serviço:
-                <img src="<?php echo $returnService['image'];?>" width="400">
+                <img src="<?php echo $returnService->getImage();?>" width="400">
             </div>
 
         </div>

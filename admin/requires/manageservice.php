@@ -3,8 +3,9 @@
     if (isset($_GET["newservice"]))
     {
 
-      if (isset($_POST["serviceSend"]))
-      {
+        
+        if (isset($_POST["serviceSend"]))
+        {
 
         // back-end novo serviço
         $name = $_POST["inputNameService"];
@@ -18,13 +19,13 @@
         $newPath = $dir . $new_name;
         move_uploaded_file($image['tmp_name'], $newPath); //Fazer upload do arquivo
 
-        $NewService = new Service($name,$price,$description,$newPath);
+        $NewService = new Service(null, $name,$price,$description,$newPath);
 
         $insertResult = insertNewService($NewService, $conn);
 
-      }
+        }
 
-      require("admin/requires/new-service.php");
+        require("admin/requires/new-service.php");
 
     // lista de serviços
     } elseif (isset($_GET["services"]))
@@ -37,6 +38,7 @@
     {
 
         // irá mostrar informações de um serviço cadastrado no banco de dados.
+        
         require("admin/requires/service.php");
 
     } elseif (isset($_GET["delService"]))

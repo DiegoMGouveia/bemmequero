@@ -8,13 +8,13 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="?newservice" class="nav-link">
+        <a href="?newservice" class="nav-link <?php if($pageActive === "newservice") { echo "active";} ?>">
             <i class="far fa-circle nav-icon"></i>
             <p>Novo Serviço</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="?services" class="nav-link">
+        <a href="?services" class="nav-link <?php if($pageActive === "services" || $pageActive === "service" || $pageActive === "delService") { echo "active";} ?>">
             <i class="far fa-circle nav-icon"></i>
             <p>Ver Serviços</p>
         </a>

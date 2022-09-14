@@ -15,7 +15,7 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="?listusers" class="nav-link">
+        <a href="?listusers" class="nav-link <?php if($pageActive === "listusers" || $pageActive === "seluser" || $pageActive === "deleteUsr") { echo "active";} ?>">
             <i class="far fa-circle nav-icon"></i>
             <p>Ver Usuários</p>
         </a>

@@ -9,13 +9,13 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="?newgallery" class="nav-link">
+        <a href="?newgallery" class="nav-link <?php if($pageActive === "newgallery") { echo "active";} ?>">
             <i class="far fa-circle nav-icon"></i>
             <p>Nova Imagem</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="?gallerys" class="nav-link">
+        <a href="?gallerys" class="nav-link <?php if($pageActive === "gallerys" || $pageActive === "editPhoto" || $pageActive === "delGallery" || $pageActive === "delGlry") { echo "active";} ?>">
             <i class="far fa-circle nav-icon"></i>
             <p>Ver Imagens</p>
         </a>
